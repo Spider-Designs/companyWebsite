@@ -14,6 +14,7 @@
 @use 'modules/services';
 @use 'modules/values';
 @use 'modules/team';
+@use 'modules/hero';
 
 // State (last, so it can override)
 @use 'state/state';

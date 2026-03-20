@@ -2,10 +2,11 @@
 
 {% block content %}
 
-<section class="home-hero">
-  <div class="wrapper">
-    <h1>Welcome to Spider</h1>
-    <p>Your partner in building modern, efficient, and scalable web solutions.</p>
+<section class="home-hero" style="--hero-image: url('{{ page.heroImage | default('/images/hero-default.jpg') }}')">
+  <div class="home-hero__inner wrapper">
+    <h1 class="home-hero__title">{{ page.title }}</h1>
+    <p class="home-hero__lead">{{ page.description }}</p>
+    <p><a href="/contact" class="button home-hero__cta">Get in touch</a></p>
   </div>
 </section>
 
