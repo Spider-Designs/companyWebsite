@@ -1,7 +1,7 @@
 // _theme.scss
 :root {
   --color-primary: #0057ff;
-  --color-text: #1a1a1a;
+  --color-text: #000000;
   --color-bg: #ffffff;
 
   --nav-height: 4rem;
@@ -9,4 +9,7 @@
   --nav-bg: var(--color-bg);
   --nav-text: var(--color-text);
   --nav-accent: var(--color-primary);
+
+  color: var(--color-text);
+  background: var(--color-bg);
 }

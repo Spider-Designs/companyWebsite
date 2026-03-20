@@ -1,0 +1,20 @@
+/* Base: skip-link (element-level helper) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  z-index: 9999;
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+}

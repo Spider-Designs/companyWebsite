@@ -12,3 +12,13 @@
   opacity: 0.5; 
   pointer-events: none; 
 }
+
+/* State: toggle / transient classes controlled by JS */
+.nav.is-open .nav__list {
+  display: flex;
+  flex-direction: column; /* mobile expanded state */
+  gap: 0;
+  background: var(--nav-bg);
+  padding: 0.5rem;
+  width: 100%;
+}

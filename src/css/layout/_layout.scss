@@ -5,6 +5,34 @@
   padding-inline: 1.5rem;
 }
 
+/* Layout: site header / header wrapper responsibilities */
+.site-head {
+  background: var(--nav-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--nav-gap);
+    height: var(--nav-height);
+  }
+
+  &__brand {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  &__nav {
+    margin-left: auto;
+  }
+
+  /* Responsive layout duties */
+  @media (max-width: 800px) {
+    &__inner { align-items: center; }
+  }
+}
+
 .site-wrap { 
   display: flex; 
   flex-direction: column; 
