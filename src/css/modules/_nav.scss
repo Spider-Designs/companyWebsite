@@ -1,0 +1,107 @@
+// Nav bar styles
+// modules/_nav.scss
+// Module: nav
+
+/* Header wrapper (light layout duties allowed here) */
+.site-head {
+  background: var(--nav-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--nav-gap);
+    height: var(--nav-height);
+  }
+
+  &__brand {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  &__nav {
+    margin-left: auto;
+  }
+}
+
+/* Nav module */
+.nav {
+  &__list {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    a {
+      display: inline-block;
+      padding: 0.5rem 0.75rem;
+      color: var(--nav-text);
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 160ms, color 160ms;
+    }
+
+    a:hover,
+    a:focus {
+      background: rgba(0,0,0,0.04);
+      outline: none;
+    }
+
+    a[aria-current="page"],
+    .is-active & a {
+      color: var(--nav-accent);
+      font-weight: 600;
+    }
+  }
+}
+
+/* Small-screen: collapse into stacked list (simple toggle-ready state) */
+// @media (max-width: 800px) {
+//   .site-head__inner {
+//     align-items: center;
+//   }
+
+//   .nav__list {
+//     display: none;
+//     flex-direction: column;
+//     gap: 0;
+//     background: var(--nav-bg);
+//     padding: 0.5rem;
+//     width: 100%;
+//   }
+
+//   .nav.is-open .nav__list {
+//     display: flex;
+//   }
+
+//   .nav__item a {
+//     padding: 0.75rem 1rem;
+//     width: 100%;
+//   }
+// }
+
+/* Accessibility: skip link (if not elsewhere) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  z-index: 9999;
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+}

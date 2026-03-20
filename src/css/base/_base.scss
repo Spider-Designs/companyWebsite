@@ -1,0 +1,22 @@
+// _base.scss
+*, *::before, *::after { 
+  box-sizing: border-box; 
+}
+
+body { 
+  margin: 0; 
+  font-family: sans-serif; 
+}
+
+h1, h2, h3 { 
+  line-height: 1.2; 
+}
+
+a { 
+  color: inherit; 
+}
+
+img { 
+  max-width: 100%; 
+  display: block; 
+}

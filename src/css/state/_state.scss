@@ -1,0 +1,14 @@
+// _state.scss
+.is-active { 
+  background-color: var(--color-primary); 
+  color: #fff; 
+}
+
+.is-hidden { 
+  display: none !important; 
+}
+
+.is-loading { 
+  opacity: 0.5; 
+  pointer-events: none; 
+}
