@@ -4,9 +4,29 @@
 
 <section class="home-hero" style="--hero-image: url('{{ page.heroImage | default('/images/hero-default.jpg') }}')">
   <div class="home-hero__inner wrapper">
-    <h1 class="home-hero__title">{{ page.title }}</h1>
-    <p class="home-hero__lead">{{ page.description }}</p>
-    <p><a href="/contact" class="button home-hero__cta">Get in touch</a></p>
+    <div class="home-hero__content">
+      <h1 class="home-hero__title">{{ page.title | default("We build modern websites that grow your business") }}</h1>
+      <p class="home-hero__lead">{{ page.description | default("Design-driven development, measurable results. We build fast, accessible websites that convert.") }}</p>
+      <div class="home-hero__ctas">
+        <a href="/contact" class="button home-hero__cta" aria-label="Start a project with {{ site.name }}">Start your project</a>
+        <a href="/work" class="button button--ghost home-hero__secondary-cta">View our work</a>
+      </div>
+    </div>
+
+    {% if page.heroImage %}
+    <div class="home-hero__media" aria-hidden="false">
+      <img src="{{ page.heroImage }}" alt="{{ page.heroAlt | default(site.name + ' — hero image') }}" loading="lazy" decoding="async" class="home-hero__img" />
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="home-testimonial">
+  <div class="wrapper">
+    <blockquote class="testimonial">
+      <p>“They redesigned our website and increased qualified leads by 73% in three months.”</p>
+      <footer>— Alex Martinez, CEO, BrightShop</footer>
+    </blockquote>
   </div>
 </section>
 
@@ -67,14 +87,14 @@
     <h2>Meet the Team</h2>
     <div class="team-list">
       <div class="team-item">
-        {# <img src="/images/team/member-1.jpg" alt="Jane Doe" /> #}
-        <h3>Jane Doe</h3>
-        <p>Founder & CEO</p>
+        {# <img src="/images/team/member-1.jpg" alt="Joshua Purves" /> #}
+        <h3>Joshua Purves</h3>
+        <p>Founder & UI/UX Developer</p>
       </div>
       <div class="team-item">
-        {# <img src="/images/team/member-2.jpg" alt="John Smith" /> #}
-        <h3>John Smith</h3>
-        <p>Head of Development</p>
+        {# <img src="/images/team/member-2.jpg" alt="Shaun Cooper" /> #}
+        <h3>Shaun Cooper</h3>
+        <p>Founder & Software Engineer</p>
       </div>
     </div>
   </div>
