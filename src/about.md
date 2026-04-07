@@ -1,5 +1,5 @@
 ---
-title: 'About SPDR'
+title: 'About Spider'
 layout: 'layouts/about.html'
 permalink: '/about-us/index.html'
 ---
