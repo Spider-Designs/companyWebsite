@@ -2,7 +2,19 @@
 
 {% block content %}
 
-<section class="home-hero" style="--hero-image: url('{{ page.heroImage | default('/images/hero-default.jpg') }}')">
+<section class="home-hero">
+
+  {% if page.heroImage %}
+  <div class="home-hero__media">
+    <img
+      src="{{ page.heroImage }}"
+      alt="{{ page.heroAlt | default(site.name + ' — hero image') }}"
+      loading="lazy"
+      decoding="async"
+      class="home-hero__img" />
+  </div>
+  {% endif %}
+
   <div class="home-hero__inner wrapper">
     <div class="home-hero__content">
       <h1 class="home-hero__title">{{ page.title | default("We build modern websites that grow your business") }}</h1>
@@ -12,12 +24,6 @@
         <a href="/work" class="button button--ghost home-hero__secondary-cta">View our work</a>
       </div>
     </div>
-
-    {% if page.heroImage %}
-    <div class="home-hero__media" aria-hidden="false">
-      <img src="{{ page.heroImage }}" alt="{{ page.heroAlt | default(site.name + ' — hero image') }}" loading="lazy" decoding="async" class="home-hero__img" />
-    </div>
-    {% endif %}
   </div>
 </section>
 
@@ -87,18 +93,30 @@
     <h2>Meet the Team</h2>
     <div class="team-list">
       <div class="team-item">
-        {# <img src="/images/team/member-1.jpg" alt="Joshua Purves" /> #}
+        <img src="/images/team/blank-avatar.jpg"
+          alt="Joshua Purves Picture"
+          class="team-item__avatar"
+          loading="lazy"
+          decoding="async"
+        />
         <h3>Joshua Purves</h3>
         <p>Founder & UI/UX Developer</p>
       </div>
       <div class="team-item">
-        {# <img src="/images/team/member-2.jpg" alt="Shaun Cooper" /> #}
+        <img src="/images/team/blank-avatar.jpg" 
+          alt="Shaun Cooper Picture"
+          class="team-item__avatar" 
+          loading="lazy"
+          decoding="async"
+        />
         <h3>Shaun Cooper</h3>
         <p>Founder & Software Engineer</p>
       </div>
     </div>
   </div>
 </section>
+
+{# TODO: Add Review Section #}
 
 {# CTA #}
 <section class="company-cta">

@@ -59,7 +59,17 @@ export default function(eleventyConfig) {
 
   eleventyConfig.addTemplateFormats('scss');
   eleventyConfig.addPlugin(RenderPlugin);
-  eleventyConfig.addPlugin(eleventyImageTransformPlugin);
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    formats: ["webp", "jpeg"],
+    widths: ["auto", 640, 960, 1280],
+    defaultAttributes: {
+      loading: "lazy",
+      decoding: "async",
+      sizes: "(min-width: 64rem) 50vw, 100vw",
+    },
+    urlPath: "/images/",
+    transformOnRequest: process.env.ELEVENTY_RUN_MODE === "serve",
+  });
 
   return {
     markdownTemplateEngine: 'njk',

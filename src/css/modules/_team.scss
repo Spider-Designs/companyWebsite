@@ -1,10 +1,21 @@
 // _team.scss
-.team-list { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-  gap: 2rem; 
+.team-list {
+  display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, 24rem);
+  gap: 2rem;
+  justify-content: center;
 }
 
-.team-item { 
-  text-align: center; 
+.team-item {
+  text-align: center;
+
+  &__avatar {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 2rem auto 1rem;
+  }
 }
