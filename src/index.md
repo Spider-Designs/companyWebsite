@@ -1,9 +1,8 @@
 ---
-title: 'Spider Designs'
-metaDesc: 'A digital marketing agency to assist with designs and your online prescense'
+title: 'Spider Designs | Coming Soon'
+metaDesc: 'Spider Designs is launching soon. Contact us for web development and digital marketing support.'
 layout: 'layouts/home.html'
 page:
-  title: Welcome to Spider
-  description: 'A digital marketing agency to assist with designs and your online prescense'
-  heroImage: 'images/hero-default.jpg'
+  title: New website coming soon
+  description: 'We are building a better Spider Designs experience. Reach out now if you want to start a project before launch.'
 ---

@@ -1,128 +1,20 @@
 {% extends "layouts/base.html" %}
 
 {% block content %}
-
-<section class="home-hero">
-
-  {% if page.heroImage %}
-  <div class="home-hero__media">
-    <img
-      src="{{ page.heroImage }}"
-      alt="{{ page.heroAlt | default(site.name + ' — hero image') }}"
-      loading="lazy"
-      decoding="async"
-      class="home-hero__img" />
-  </div>
-  {% endif %}
-
-  <div class="home-hero__inner wrapper">
-    <div class="home-hero__content">
-      <h1 class="home-hero__title">{{ page.title | default("We build modern websites that grow your business") }}</h1>
-      <p class="home-hero__lead">{{ page.description | default("Design-driven development, measurable results. We build fast, accessible websites that convert.") }}</p>
-      <div class="home-hero__ctas">
-        <a href="/contact" class="button home-hero__cta" aria-label="Start a project with {{ site.name }}">Start your project</a>
-        <a href="/work" class="button button--ghost home-hero__secondary-cta">View our work</a>
-      </div>
+<section class="coming-soon" aria-labelledby="coming-soon-title">
+  <div class="coming-soon__bg" aria-hidden="true"></div>
+  <div class="wrapper coming-soon__inner">
+    <p class="coming-soon__eyebrow">Spider Designs</p>
+    <h1 id="coming-soon-title" class="coming-soon__title">
+      {{ page.title | default("New site coming soon") }}
+    </h1>
+    <p class="coming-soon__lead">
+      {{ page.description | default("We are crafting a fresh digital experience. Check back soon to see the full launch.") }}
+    </p>
+    <div class="coming-soon__actions">
+      <a href="mailto:hello@spider-designs.co.uk" class="button coming-soon__cta">Contact us</a>
+      {# <a href="/work" class="button coming-soon__cta coming-soon__cta--ghost">See past work</a> #}
     </div>
-  </div>
-</section>
-
-<section class="home-testimonial">
-  <div class="wrapper">
-    <blockquote class="testimonial">
-      <p>“They redesigned our website and increased qualified leads by 73% in three months.”</p>
-      <footer>— Alex Martinez, CEO, BrightShop</footer>
-    </blockquote>
-  </div>
-</section>
-
-{# <section>
-  <div>
-    TODO: Have a carousel of companies we've worked with here
-  </div>
-</section> #}
-
-{# Mission & Values #}
-<section class="company-mission">
-  <div class="wrapper">
-    <h2>Our Mission</h2>
-    <p>To deliver modern, results-driven digital solutions that empower our clients to succeed.</p>
-
-    <div class="values-list">
-      <div class="value-item">
-        <h3>Integrity</h3>
-        <p>We are transparent and honest in everything we do.</p>
-      </div>
-      <div class="value-item">
-        <h3>Innovation</h3>
-        <p>We stay ahead of industry trends to deliver cutting-edge solutions.</p>
-      </div>
-      <div class="value-item">
-        <h3>Results</h3>
-        <p>We are focused on measurable outcomes that matter to your business.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{# Section for services #}
-<section class="home-services">
-  <div class="wrapper">
-    <h2>Our Services</h2>
-    <div class="services-list">
-      <div class="service-item">
-        <h3>Web Development</h3>
-        <p>Building modern, efficient, and scalable web solutions tailored to your business needs.</p>
-      </div>
-      <div class="service-item">
-        <h3>SEO Optimization</h3>
-        <p>Improving your website's visibility and ranking on search engines to attract more traffic.</p>
-      </div>
-      <div class="service-item">
-        <h3>Content Marketing</h3>
-        <p>Creating engaging and relevant content to attract and retain your target audience.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{# Team #}
-<section class="company-team">
-  <div class="wrapper">
-    {# TODO: Add team member images #}
-    <h2>Meet the Team</h2>
-    <div class="team-list">
-      <div class="team-item">
-        <img src="/images/team/blank-avatar.jpg"
-          alt="Joshua Purves Picture"
-          class="team-item__avatar"
-          loading="lazy"
-          decoding="async"
-        />
-        <h3>Joshua Purves</h3>
-        <p>Founder & UI/UX Developer</p>
-      </div>
-      <div class="team-item">
-        <img src="/images/team/blank-avatar.jpg" 
-          alt="Shaun Cooper Picture"
-          class="team-item__avatar" 
-          loading="lazy"
-          decoding="async"
-        />
-        <h3>Shaun Cooper</h3>
-        <p>Founder & Software Engineer</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{# TODO: Add Review Section #}
-
-{# CTA #}
-<section class="company-cta">
-  <div class="wrapper">
-    <h2>Ready to work together?</h2>
-    <a href="/contact" class="button">Get in Touch</a>
   </div>
 </section>
 
