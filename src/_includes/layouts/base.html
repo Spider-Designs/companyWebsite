@@ -69,7 +69,7 @@
 
 		{% if pageScripts %}
 			{% for item in pageScripts %}
-				<script src="{{ item }}?{{ assetHash }}" defer></script>
+				<script type="module" src="{{ item | viteAsset }}"></script>
 			{% endfor %}
 		{% endif %}
 	</body>

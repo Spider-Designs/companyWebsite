@@ -4,8 +4,13 @@
   "description": "The website for Our Company",
   "main": "index.js",
   "scripts": {
-    "start": "eleventy --serve",
-    "build": "eleventy",
+    "dev": "concurrently \"npm:dev:vite\" \"npm:dev:11ty\"",
+    "dev:vite": "vite",
+    "dev:11ty": "eleventy --serve",
+    "start": "npm run dev",
+    "build:assets": "vite build",
+    "build:site": "eleventy",
+    "build": "npm run build:assets && npm run build:site",
     "production": "NODE_ENV=production npm run build"
   },
   "keywords": [],
@@ -15,10 +20,12 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-img": "^6.0.4",
+    "concurrently": "^9.2.1",
     "cssnano": "^7.1.2",
     "html-minifier-next": "^4.19.0",
     "postcss": "^8.5.6",
-    "sass": "^1.97.3"
+    "sass": "^1.97.3",
+    "vite": "^8.0.10"
   },
   "dependencies": {
     "embla-carousel": "^8.6.0",

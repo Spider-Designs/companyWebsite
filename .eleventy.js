@@ -1,4 +1,5 @@
 import nodePath from 'path';
+import fs from 'fs';
 import * as sass from 'sass';
 import { RenderPlugin } from '@11ty/eleventy';
 import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
@@ -9,6 +10,33 @@ import cssnano from 'cssnano';
 export default function(eleventyConfig) {
 
   const isProduction = process.env.NODE_ENV === 'production';
+  const isServe = process.env.ELEVENTY_RUN_MODE === 'serve';
+  const viteDevServer = 'http://127.0.0.1:5173';
+  const viteManifestPath = nodePath.join(process.cwd(), 'dist', '.vite', 'manifest.json');
+
+  function getViteManifest() {
+    if (!isProduction || !fs.existsSync(viteManifestPath)) {
+      return {};
+    }
+
+    return JSON.parse(fs.readFileSync(viteManifestPath, 'utf8'));
+  }
+
+  eleventyConfig.addFilter('viteAsset', function (entry) {
+    if (!entry) {
+      return entry;
+    }
+
+    const normalizedEntry = entry.replace(/^\//, '');
+
+    if (isServe) {
+      return `${viteDevServer}/${normalizedEntry}`;
+    }
+
+    const manifest = getViteManifest();
+    const manifestEntry = manifest[normalizedEntry];
+    return manifestEntry ? `/${manifestEntry.file}` : entry;
+  });
 
   // Minify HTML for production builds
   if (isProduction) {
@@ -58,9 +86,6 @@ export default function(eleventyConfig) {
   });
 
   eleventyConfig.addTemplateFormats('scss');
-  eleventyConfig.addPassthroughCopy({ 'src/js': 'js' });
-  eleventyConfig.addPassthroughCopy({ 'node_modules/embla-carousel/embla-carousel.umd.js': 'js/vendor/embla-carousel.umd.js' });
-  eleventyConfig.addPassthroughCopy({ 'node_modules/embla-carousel-autoplay/embla-carousel-autoplay.umd.js': 'js/vendor/embla-carousel-autoplay.umd.js' });
   eleventyConfig.addPlugin(RenderPlugin);
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     formats: ["webp", "jpeg"],
