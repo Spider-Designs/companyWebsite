@@ -9,10 +9,118 @@
   </div>
 </section>
 
+{% if sectionsBeforeTeam %}
+  {% for section in sectionsBeforeTeam %}
+  <section class="about-content">
+    <div class="wrapper">
+      {% if section.title %}
+        <h2>{{ section.title }}</h2>
+      {% endif %}
+
+      {% if section.paragraphs %}
+        {% for paragraph in section.paragraphs %}
+          <p>{{ paragraph }}</p>
+        {% endfor %}
+      {% endif %}
+
+      {% if section.listTitle %}
+        <p>{{ section.listTitle }}</p>
+      {% endif %}
+
+      {% if section.items %}
+        <ul>
+          {% for item in section.items %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if section.values %}
+        <div class="values-list">
+          {% for value in section.values %}
+          <div class="value-item">
+            <h3>{{ value.title }}</h3>
+            <p>{{ value.body }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+  {% endfor %}
+{% endif %}
+
+{% if team %}
+<section class="company-team">
+  <div class="wrapper">
+    <h2>{{ team.title | default('Meet the Team') }}</h2>
+    {% if team.description %}
+      <p>{{ team.description }}</p>
+    {% endif %}
+    <div class="team-list">
+      {% for member in team.members %}
+      <div class="team-item">
+        <img src="{{ member.image | default('/images/team/blank-avatar.jpg') }}"
+          alt="{{ member.alt }}"
+          class="team-item__avatar"
+          loading="lazy"
+          decoding="async"
+        />
+        <h3>{{ member.name }}</h3>
+        <p>{{ member.role }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if sectionsAfterTeam %}
+  {% for section in sectionsAfterTeam %}
+  <section class="about-content">
+    <div class="wrapper">
+      {% if section.title %}
+        <h2>{{ section.title }}</h2>
+      {% endif %}
+
+      {% if section.paragraphs %}
+        {% for paragraph in section.paragraphs %}
+          <p>{{ paragraph }}</p>
+        {% endfor %}
+      {% endif %}
+
+      {% if section.items %}
+        <ul>
+          {% for item in section.items %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </section>
+  {% endfor %}
+{% endif %}
+
+{% if content %}
 <section class="about-content">
   <div class="wrapper">
     {{ content | safe }}
   </div>
 </section>
+{% endif %}
+
+{% if closingCta %}
+<section class="about-content">
+  <div class="wrapper">
+    <h2>{{ closingCta.title }}</h2>
+    {% for paragraph in closingCta.paragraphs %}
+      <p>{{ paragraph }}</p>
+    {% endfor %}
+    {% if closingCta.button %}
+      <p><a href="{{ closingCta.button.url }}" class="button">{{ closingCta.button.text }}</a></p>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
 
 {% endblock %}

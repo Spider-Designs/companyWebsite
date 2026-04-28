@@ -2,7 +2,7 @@
 title: 'AI Ethics Policy'
 metaDesc: 'How Spider Design Ltd uses AI tools responsibly with human oversight, transparency, and data protection safeguards.'
 layout: 'layouts/policy.html'
-permalink: '/ai-ethics-policy/index.html'
+permalink: '/policies/ai-ethics-policy/index.html'
 lastUpdated: '28 April 2026'
 ---
 

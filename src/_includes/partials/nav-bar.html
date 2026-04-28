@@ -7,17 +7,82 @@
 			<a href="/" aria-label="{{ site.name }} - home" class="site-head__brand">
 				{# {% include "partials/brand.svg" %} #}
 			</a>
-			<nav class="[ nav ] [ site-head__nav ] [ font-sans ]" aria-label="Primary">
+			<button class="nav__hamburger" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
+				<span class="nav__hamburger-icon" aria-hidden="true"></span>
+			</button>
+			<nav class="[ nav ] [ site-head__nav ] [ font-sans ]" aria-label="Primary" id="primary-nav">
 				<ul class="nav__list">
 					{% for item in navigation.items %}
-					<li class="nav__item">
-						<a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>
-              {{ item.text }}
-            </a>
+					<li class="nav__item{% if item.children %} nav__item--has-dropdown{% endif %}">
+						{% if item.children %}
+							<button class="nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+								{{ item.text }}<span class="nav__dropdown-arrow" aria-hidden="true"></span>
+							</button>
+							<ul class="nav__dropdown" role="list">
+								{% for child in item.children %}
+								<li>
+									<a href="{{ child.url }}" {{ helpers.getLinkActiveState(child.url, page.url) | safe }}>{{ child.text }}</a>
+								</li>
+								{% endfor %}
+							</ul>
+						{% else %}
+							<a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>
+								{{ item.text }}
+							</a>
+						{% endif %}
 					</li>
 					{% endfor %}
 				</ul>
 			</nav>
+			<script>
+				(function () {
+					var hamburger = document.querySelector('.nav__hamburger');
+
+					// Hamburger: open/close mobile nav
+					if (hamburger) {
+						hamburger.addEventListener('click', function () {
+							var expanded = this.getAttribute('aria-expanded') === 'true';
+							this.setAttribute('aria-expanded', String(!expanded));
+							this.setAttribute('aria-label', expanded ? 'Open navigation menu' : 'Close navigation menu');
+						});
+
+						// Close mobile menu when clicking outside the header
+						document.addEventListener('click', function (e) {
+							if (hamburger.getAttribute('aria-expanded') === 'true' && !e.target.closest('.site-head')) {
+								hamburger.setAttribute('aria-expanded', 'false');
+								hamburger.setAttribute('aria-label', 'Open navigation menu');
+							}
+						});
+					}
+
+					// Dropdown toggles (desktop + mobile)
+					document.querySelectorAll('.nav__dropdown-toggle').forEach(function (btn) {
+						btn.addEventListener('click', function () {
+							var expanded = this.getAttribute('aria-expanded') === 'true';
+							this.setAttribute('aria-expanded', String(!expanded));
+						});
+						// Close when focus leaves the parent li
+						btn.closest('li').addEventListener('focusout', function (e) {
+							if (!this.contains(e.relatedTarget)) {
+								btn.setAttribute('aria-expanded', 'false');
+							}
+						});
+					});
+
+					// Close everything on Escape
+					document.addEventListener('keydown', function (e) {
+						if (e.key === 'Escape') {
+							document.querySelectorAll('.nav__dropdown-toggle').forEach(function (btn) {
+								btn.setAttribute('aria-expanded', 'false');
+							});
+							if (hamburger) {
+								hamburger.setAttribute('aria-expanded', 'false');
+								hamburger.setAttribute('aria-label', 'Open navigation menu');
+							}
+						}
+					});
+				}());
+			</script>
 		</div>
 	</div>
 </header>

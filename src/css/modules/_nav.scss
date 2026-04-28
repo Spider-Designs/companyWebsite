@@ -1,33 +1,237 @@
-/* Module: nav (visuals, spacing internal to the nav component) */
+/* Module: nav — mobile-first */
+
+// ─── Hamburger button (visible on mobile only) ────────────────
+.nav__hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--nav-text);
+  border-radius: 4px;
+  transition: background 160ms;
+
+  &:hover,
+  &:focus {
+    background: rgba(0, 0, 0, 0.04);
+    outline: none;
+  }
+}
+
+// Three-bar icon — animates to × when open
+.nav__hamburger-icon {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: background 250ms;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 250ms, top 250ms;
+  }
+
+  &::before { top: -6px; }
+  &::after  { top:  6px; }
+
+  .nav__hamburger[aria-expanded="true"] & {
+    background: transparent;
+
+    &::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+// Reveal the nav panel when hamburger is open
+.nav__hamburger[aria-expanded="true"] ~ .site-head__nav {
+  display: block;
+}
+
+// ─── Mobile nav: stacked list
 .nav {
   &__list {
     display: flex;
-    gap: 1rem;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0.5rem 0;
   }
 
   &__item {
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+    &:last-child { border-bottom: none; }
+
     a {
-      display: inline-block;
-      padding: 0.5rem 0.75rem;
+      display: block;
+      padding: 0.875rem 1.5rem;
       color: var(--nav-text);
       text-decoration: none;
-      border-radius: 4px;
+      border-radius: 0;
       transition: background 160ms, color 160ms;
     }
 
     a:hover,
     a:focus {
-      background: rgba(0,0,0,0.04);
+      background: rgba(0, 0, 0, 0.04);
       outline: none;
     }
 
     a[aria-current="page"] {
       color: var(--nav-accent);
       font-weight: 600;
+    }
+  }
+
+  // Dropdown toggle: full-width on mobile
+  &__dropdown-toggle {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1.5rem;
+    background: none;
+    border: none;
+    border-radius: 0;
+    color: var(--nav-text);
+    font: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 160ms, color 160ms;
+
+    &:hover,
+    &:focus {
+      background: rgba(0, 0, 0, 0.04);
+      outline: none;
+    }
+  }
+
+  // Arrow indicator
+  &__dropdown-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
+    transition: transform 200ms;
+
+    .nav__dropdown-toggle[aria-expanded="true"] & {
+      transform: rotate(180deg);
+    }
+  }
+
+  // Mobile sub-menu: inline stacked, not floating
+  &__dropdown {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.03);
+
+    li a {
+      display: block;
+      padding: 0.75rem 1.5rem 0.75rem 2.5rem;
+      white-space: normal;
+    }
+  }
+
+  &__dropdown-toggle[aria-expanded="true"] ~ &__dropdown {
+    display: block;
+  }
+}
+
+// ─── Desktop nav ──────────────────────────────────────────────
+@media (min-width: 769px) {
+  .nav__hamburger {
+    display: none;
+  }
+
+  .nav {
+    &__list {
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+      padding: 0;
+    }
+
+    &__item {
+      border-bottom: none;
+
+      a {
+        display: inline-block;
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+      }
+    }
+
+    &__dropdown-toggle {
+      display: inline-flex;
+      width: auto;
+      justify-content: flex-start;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+    }
+
+    // Desktop dropdown: floating panel with smooth transition
+    &__dropdown {
+      display: block;
+      position: absolute;
+      top: calc(100% + 0.25rem);
+      left: 0;
+      z-index: 100;
+      min-width: 220px;
+      padding: 0.375rem 0;
+      background: var(--color-bg);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: opacity 160ms, transform 160ms, visibility 160ms;
+
+      li a {
+        padding: 0.5rem 1rem;
+        white-space: nowrap;
+      }
+    }
+
+    // Show on hover (mouse users)
+    &__item--has-dropdown:hover &__dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    // Show when toggle is expanded (keyboard / click)
+    &__dropdown-toggle[aria-expanded="true"] ~ &__dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
   }
 }

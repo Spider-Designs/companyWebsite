@@ -14,11 +14,4 @@
 }
 
 /* State: toggle / transient classes controlled by JS */
-.nav.is-open .nav__list {
-  display: flex;
-  flex-direction: column; /* mobile expanded state */
-  gap: 0;
-  background: var(--nav-bg);
-  padding: 0.5rem;
-  width: 100%;
-}
+// (nav open/close is handled via aria-expanded on .nav__hamburger — see _nav.scss)

@@ -10,7 +10,15 @@
     },
     {
       "text": "Services",
-      "url": "/services/"
+      "url": "/services/",
+      "children": [
+        { "text": "Web Design & Development", "url": "/services/web-design/" },
+        { "text": "SEO Optimisation", "url": "/services/seo/" },
+        { "text": "Digital Marketing Design", "url": "/services/digital-marketing-design/" },
+        { "text": "Website Review", "url": "/services/website-review/" },
+        { "text": "Branding Design", "url": "/services/branding-design/" },
+        { "text": "Hosting & Maintenance", "url": "/services/hosting-maintenance/" }
+      ]
     },
     {
       "text": "Our Work",

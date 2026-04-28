@@ -1,0 +1,28 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<section class="service-hero">
+  <div class="wrapper">
+    <h1>{{ title }}</h1>
+    {% if serviceTagline %}
+      <p class="service-hero__tagline">{{ serviceTagline }}</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="service-body">
+  <div class="wrapper service-body__inner">
+    {{ content | safe }}
+  </div>
+</section>
+
+<section class="service-cta">
+  <div class="wrapper">
+    <h2>Ready to get started?</h2>
+    <p>Get in touch and we'll put together an affordable package tailored to your business.</p>
+    <a href="/contact" class="button">Talk to us</a>
+  </div>
+</section>
+
+{% endblock %}

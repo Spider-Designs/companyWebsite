@@ -2,7 +2,7 @@
 title: 'Privacy Policy'
 metaDesc: 'How Spider Design Ltd collects, uses, and protects your personal data in line with UK GDPR and data protection law.'
 layout: 'layouts/policy.html'
-permalink: '/privacy-policy/index.html'
+permalink: '/policies/privacy-policy/index.html'
 lastUpdated: '28 April 2026'
 ---
 

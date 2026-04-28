@@ -1,0 +1,69 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<section class="contact-hero">
+  <div class="wrapper">
+    <h1>{{ title }}</h1>
+    {% if description %}
+      <p class="contact-hero__lead">{{ description }}</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="contact-page">
+  <div class="wrapper contact-page__grid">
+    <div class="contact-page__intro">
+      {{ content | safe }}
+    </div>
+
+{# Netlify form - Needs changing if migrating to another platform #}
+    <div class="contact-page__form-wrap">
+      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="contact-form__hidden">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+
+        <div class="contact-form__field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+
+        <div class="contact-form__field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+
+        <div class="contact-form__field">
+          <label for="business">Business name</label>
+          <input id="business" name="business" type="text" autocomplete="organization" />
+        </div>
+
+        <div class="contact-form__field">
+          <label for="service">What do you need help with?</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="web-design">Web Design &amp; Development</option>
+            <option value="seo">SEO Optimisation</option>
+            <option value="digital-marketing-design">Digital Marketing Design</option>
+            <option value="website-review">Website Review</option>
+            <option value="branding-design">Branding Design</option>
+            <option value="hosting-maintenance">Hosting &amp; Maintenance</option>
+            <option value="monthly-retainer">Monthly Retainer / No Upfront Cost</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+
+        <div class="contact-form__field">
+          <label for="message">Tell us about your project</label>
+          <textarea id="message" name="message" rows="7" required></textarea>
+        </div>
+
+        <button type="submit" class="button">Send enquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

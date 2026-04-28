@@ -16,6 +16,7 @@
 @use 'modules/team';
 @use 'modules/hero';
 @use 'modules/policy';
+@use 'modules/contact';
 
 // State (last, so it can override)
 @use 'state/state';
