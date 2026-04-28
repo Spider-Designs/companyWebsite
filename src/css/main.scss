@@ -17,6 +17,7 @@
 @use 'modules/hero';
 @use 'modules/policy';
 @use 'modules/contact';
+@use 'modules/carousel';
 
 // State (last, so it can override)
 @use 'state/state';
