@@ -5,11 +5,15 @@
       "url": "/"
     },
     {
-      "text": "About",
+      "text": "About Us",
       "url": "/about-us/"
     },
     {
-      "text": "Work",
+      "text": "Services",
+      "url": "/services/"
+    },
+    {
+      "text": "Our Work",
       "url": "/work/"
     },
     {

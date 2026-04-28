@@ -1,0 +1,20 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<section class="policy-hero">
+  <div class="wrapper">
+    <h1>{{ heading | default(title) }}</h1>
+    {% if lastUpdated %}
+      <p class="policy-hero__meta">Last updated: {{ lastUpdated }}</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="policy-content">
+  <div class="wrapper policy-content__inner">
+    {{ content | safe }}
+  </div>
+</section>
+
+{% endblock %}
