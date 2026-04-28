@@ -11,7 +11,8 @@
     "build:assets": "vite build",
     "build:site": "eleventy",
     "build": "npm run build:assets && npm run build:site",
-    "production": "NODE_ENV=production npm run build"
+    "production": "NODE_ENV=production npm run build",
+    "preview": "npm run production && npx serve dist"
   },
   "keywords": [],
   "author": "Our Company",

@@ -22,6 +22,10 @@
 <title>{{ pageTitle }}</title>
 <link rel="canonical" href="{{ currentUrl }}" />
 
+{% if noindex %}
+	<meta name="robots" content="noindex,follow" />
+{% endif %}
+
 <meta property="og:site_name" content="{{ siteTitle }}" />
 <meta property="og:title" content="{{ pageTitle }}" />
 <meta property="og:type" content="website" />
