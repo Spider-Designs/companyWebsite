@@ -43,17 +43,17 @@
       <h2>Dummy carousel for companies we have supported</h2>
     </div>
 
-    <div class="carousel-track" aria-label="Example client logos">
-      <div class="carousel-track__inner">
+    <div class="logo-ticker" aria-label="Example client logos">
+      <div class="logo-ticker__track">
         <div class="logo-pill">BrightShop</div>
         <div class="logo-pill">Northline Legal</div>
-        <div class="logo-pill">Oak & Ash</div>
+        <div class="logo-pill">Oak &amp; Ash</div>
         <div class="logo-pill">Marlow Fitness</div>
         <div class="logo-pill">Haven Property</div>
         <div class="logo-pill">Studio Lane</div>
         <div class="logo-pill">BrightShop</div>
         <div class="logo-pill">Northline Legal</div>
-        <div class="logo-pill">Oak & Ash</div>
+        <div class="logo-pill">Oak &amp; Ash</div>
         <div class="logo-pill">Marlow Fitness</div>
         <div class="logo-pill">Haven Property</div>
         <div class="logo-pill">Studio Lane</div>
@@ -132,33 +132,48 @@
       <h2>What clients say about working with Spider Design</h2>
     </div>
 
-    <div class="reviews-carousel" aria-label="Example client reviews">
-      <article class="review-card">
-        <p class="review-card__rating">★★★★★</p>
-        <p>“The whole process was straightforward, affordable, and far more collaborative than we expected. We finally have a site we are proud to share.”</p>
-        <footer>
-          <strong>Emily Carter</strong>
-          <span>Studio Lane</span>
-        </footer>
-      </article>
+    <div class="embla embla--reviews" data-embla="reviews" aria-label="Example client reviews">
+      <div class="embla__viewport">
+        <div class="embla__container">
+          <div class="embla__slide embla__slide--review">
+            <article class="review-card">
+              <p class="review-card__rating">★★★★★</p>
+              <p>“The whole process was straightforward, affordable, and far more collaborative than we expected. We finally have a site we are proud to share.”</p>
+              <footer>
+                <strong>Emily Carter</strong>
+                <span>Studio Lane</span>
+              </footer>
+            </article>
+          </div>
 
-      <article class="review-card">
-        <p class="review-card__rating">★★★★★</p>
-        <p>“Our old website was holding us back. Spider Design reviewed everything, fixed the weak points, and gave us a much clearer digital direction.”</p>
-        <footer>
-          <strong>Daniel Reid</strong>
-          <span>Northline Legal</span>
-        </footer>
-      </article>
+          <div class="embla__slide embla__slide--review">
+            <article class="review-card">
+              <p class="review-card__rating">★★★★★</p>
+              <p>“Our old website was holding us back. Spider Design reviewed everything, fixed the weak points, and gave us a much clearer digital direction.”</p>
+              <footer>
+                <strong>Daniel Reid</strong>
+                <span>Northline Legal</span>
+              </footer>
+            </article>
+          </div>
 
-      <article class="review-card">
-        <p class="review-card__rating">★★★★★</p>
-        <p>“We needed branding, a new website, and ongoing support without a huge upfront spend. The retainer option made that possible for us.”</p>
-        <footer>
-          <strong>Sophie Wallace</strong>
-          <span>Haven Property</span>
-        </footer>
-      </article>
+          <div class="embla__slide embla__slide--review">
+            <article class="review-card">
+              <p class="review-card__rating">★★★★★</p>
+              <p>“We needed branding, a new website, and ongoing support without a huge upfront spend. The retainer option made that possible for us.”</p>
+              <footer>
+                <strong>Sophie Wallace</strong>
+                <span>Haven Property</span>
+              </footer>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="embla__controls">
+        <button type="button" class="embla__button" data-embla-prev aria-label="Previous review">Previous</button>
+        <button type="button" class="embla__button" data-embla-next aria-label="Next review">Next</button>
+      </div>
     </div>
   </div>
 </section>

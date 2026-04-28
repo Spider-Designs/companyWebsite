@@ -19,5 +19,9 @@
     "html-minifier-next": "^4.19.0",
     "postcss": "^8.5.6",
     "sass": "^1.97.3"
+  },
+  "dependencies": {
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-autoplay": "^8.6.0"
   }
 }

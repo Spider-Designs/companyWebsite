@@ -58,6 +58,9 @@ export default function(eleventyConfig) {
   });
 
   eleventyConfig.addTemplateFormats('scss');
+  eleventyConfig.addPassthroughCopy({ 'src/js': 'js' });
+  eleventyConfig.addPassthroughCopy({ 'node_modules/embla-carousel/embla-carousel.umd.js': 'js/vendor/embla-carousel.umd.js' });
+  eleventyConfig.addPassthroughCopy({ 'node_modules/embla-carousel-autoplay/embla-carousel-autoplay.umd.js': 'js/vendor/embla-carousel-autoplay.umd.js' });
   eleventyConfig.addPlugin(RenderPlugin);
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     formats: ["webp", "jpeg"],

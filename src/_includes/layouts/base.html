@@ -66,5 +66,11 @@
 				</div>
 			</footer>
 		</div>
+
+		{% if pageScripts %}
+			{% for item in pageScripts %}
+				<script src="{{ item }}?{{ assetHash }}" defer></script>
+			{% endfor %}
+		{% endif %}
 	</body>
 </html>
