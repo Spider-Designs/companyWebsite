@@ -16,3 +16,5 @@ src/_includes/css
 # Build
 _site
 dist
+# Local Netlify folder
+.netlify
