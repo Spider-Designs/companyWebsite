@@ -5,7 +5,7 @@
 	<div class="wrapper">
 		<div class="site-head__inner">
 			<a href="/" aria-label="{{ site.name }} - home" class="site-head__brand">
-				{# {% include "partials/brand.svg" %} #}
+				{% include "partials/brand.svg" %}
 			</a>
 			<button class="nav__hamburger" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
 				<span class="nav__hamburger-icon" aria-hidden="true"></span>
@@ -32,6 +32,14 @@
 						{% endif %}
 					</li>
 					{% endfor %}
+					<li class="nav__item">
+						<a href="/contact/">
+							<button class="button button--primary nav__cta" aria-label="Chat with {{ site.name }}">
+								{% include "partials/chat-icon.svg" %}
+								<span>Chat with Us</span>
+							</button>
+						</a>
+					</li>
 				</ul>
 			</nav>
 			<script>

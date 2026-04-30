@@ -1,5 +1,18 @@
 /* Module: nav — mobile-first */
 
+.site-head__brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  svg {
+    display: block;
+    width: auto;
+    max-width: clamp(2.75rem, 8vw, 3.5rem);
+    height: clamp(2.75rem, 8vw, 3.5rem);
+  }
+}
+
 // ─── Hamburger button (visible on mobile only) ────────────────
 .nav__hamburger {
   display: flex;
@@ -97,6 +110,7 @@
     a:focus {
       background: rgba(0, 0, 0, 0.04);
       outline: none;
+      color: var(--nav-accent);
     }
 
     a[aria-current="page"] {
@@ -125,6 +139,7 @@
     &:focus {
       background: rgba(0, 0, 0, 0.04);
       outline: none;
+      color: var(--nav-accent);
     }
   }
 
@@ -160,6 +175,29 @@
 
   &__dropdown-toggle[aria-expanded="true"] ~ &__dropdown {
     display: block;
+  }
+
+  &__cta {
+    gap: 0.5rem;
+    background: var(--nav-accent);
+    color: var(--nav-text);
+    border-radius: 2rem;
+    font-weight: 600;
+    transition: background 160ms, color 160ms;
+
+    svg {
+      width: 1.33rem;
+      height: 1.33rem;
+      flex-shrink: 0;
+    }
+
+    &:hover,
+    &:focus {
+      background: var(--nav-accent);
+      color: var(--nav-text);
+      opacity: 0.9;
+      outline: none;
+    }
   }
 }
 
