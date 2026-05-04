@@ -1,11 +1,10 @@
 ---
 title: 'Web Design, Development, & SEO Consultancy in Coatbridge, Scotland | Spider Design'
-metaDesc: 'Spider Design is a Web Design consultancy working with people and businesses to improve their online presence.'
+metaDesc: 'Spider Design delivers affordable web design, development, and SEO services for businesses'
 layout: 'layouts/home.html'
 pageScripts:
   - '/src/js/home-carousels.js'
 page:
-  title: Expert Web Design & SEO for Your Business
-  description: 'Spider Design delivers affordable web design, development, and SEO services for businesses. Professional results without the big agency price tag.'
-  heroImage: 'images/hero-default.jpg'
+  title: 'SPIDER<br>DESIGN'
+  description: '© 2026 Spider Design Ltd | Registered in Scotland | BUILDING WEBSITES FOR THOSE WHO BUILD EVERYTHING ELSE'
 ---

@@ -2,8 +2,9 @@
 
 {% block content %}
 
-<section class="home-hero">
+<section class="home-hero home-section">
 
+{# For a potential hero image #}
   {% if page.heroImage %}
   <div class="home-hero__media">
     <img
@@ -17,26 +18,49 @@
 
   <div class="home-hero__inner wrapper">
     <div class="home-hero__content">
-      <h1 class="home-hero__title">{{ page.title | default("We build modern websites that grow your business") }}</h1>
-      <p class="home-hero__lead">{{ page.description | default("Design-driven development, measurable results. We build fast, accessible websites that convert.") }}</p>
-      <div class="home-hero__ctas">
-        <a href="/contact" class="button home-hero__cta" aria-label="Start a project with {{ site.name }}">Start your project</a>
-        <a href="/work" class="button button--ghost home-hero__secondary-cta">View our work</a>
+      <h1 class="home-hero__title" aria-label="{{ page.title | striptags }}">{{ page.title | safe }}</h1>
+      <div class="home-hero__cta-container">
+        <p class="home-hero__lead-ticker" aria-label="{{ page.description }}">
+          <span class="home-hero__lead-track">
+            <span class="home-hero__lead-copy">{{ page.description }}</span>
+            <span class="home-hero__lead-copy" aria-hidden="true">{{ page.description }}</span>
+          </span>
+        </p>
+        <a href="/contact" class="button home-hero__cta-primary" aria-label="Start a project with {{ site.name }}">Start a project →</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="home-testimonial">
+<section class="home-impact home-section">
   <div class="wrapper">
-    <blockquote class="testimonial">
-      <p>"Spider Design built us an affordable, professional website and our search rankings improved within weeks."</p>
-      <footer>— Alex Martinez, CEO, BrightShop</footer>
-    </blockquote>
+    <div class="home-impact__intro">
+      <h2 class="home-impact__eyebrow">Our impact</h2>
+      <h3 class="home-impact__headline">Expert Web Design, Development and SEO Support</h3>
+    </div>
+
+    <div class="home-impact__grid" aria-label="Spider Design impact highlights">
+      <article class="impact-card">
+        <p class="impact-card__value">40+</p>
+        <p class="impact-card__label">projects launched for trades, local services, and growing teams</p>
+      </article>
+      <article class="impact-card">
+        <p class="impact-card__value">96%</p>
+        <p class="impact-card__label">of clients stay on for support, optimisation, or monthly care</p>
+      </article>
+      <article class="impact-card">
+        <p class="impact-card__value">3x</p>
+        <p class="impact-card__label">average uplift in qualified enquiries after a redesign and SEO pass</p>
+      </article>
+      <article class="impact-card">
+        <p class="impact-card__value">7 days</p>
+        <p class="impact-card__label">typical turnaround for priority fixes, updates, and launch support</p>
+      </article>
+    </div>
   </div>
 </section>
 
-<section class="company-logos">
+<section class="company-logos home-section">
   <div class="wrapper">
     <div class="section-heading">
       <p class="section-heading__eyebrow">Worked With</p>
@@ -63,7 +87,7 @@
 </section>
 
 {# Mission & Values #}
-<section class="company-mission">
+<section class="company-mission home-section">
   <div class="wrapper">
     <h2>Our Mission</h2>
     <p>To make high-quality web design and SEO affordable for every business — delivering professional, results-driven websites that grow your online presence.</p>
@@ -86,7 +110,7 @@
 </section>
 
 {# Section for services #}
-<section class="home-services">
+<section class="home-services home-section">
   <div class="wrapper">
     <h2>Affordable Web Design &amp; SEO Services</h2>
     <p class="home-services__intro">Everything your business needs to get online, grow, and stay ahead — all at an affordable price.</p>
@@ -125,7 +149,7 @@
   </div>
 </section>
 
-<section class="home-reviews">
+<section class="home-reviews home-section">
   <div class="wrapper">
     <div class="section-heading">
       <p class="section-heading__eyebrow">Fake Reviews</p>
@@ -179,7 +203,7 @@
 </section>
 
 {# CTA #}
-<section class="company-cta">
+<section class="company-cta home-section">
   <div class="wrapper">
     <h2>Ready for affordable web design &amp; SEO that delivers?</h2>
     <a href="/contact" class="button">Get in Touch</a>

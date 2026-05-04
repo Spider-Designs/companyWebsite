@@ -132,3 +132,20 @@
 .company-cta { 
   padding-block: 4rem; 
 }
+
+.home-section:first-of-type,
+.home-section + .home-section {
+  position: relative;
+}
+
+.home-section:first-of-type::before,
+.home-section + .home-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(100% - 3rem, 1200px);
+  height: 1px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.22);
+}
