@@ -60,6 +60,38 @@
   </div>
 </section>
 
+<section class="home-case-studies home-section">
+  <div class="wrapper">
+    <img
+      src="/images/LargeLogo.svg"
+      alt="Spider Design Logo"
+      aria-hidden="true"
+      loading="lazy"
+      decoding="async"
+      class="home-case-studies__logo" 
+    />
+    <div class="hero__top">
+      <p class="hero__intro">
+        We understand that you make<br />
+        the world work, we give<br />
+        you the platform to do it.
+      </p>
+    </div>
+
+    <h1 class="hero__headline">
+      <span>We build</span>
+      <span class="indent-1">websites for</span>
+      <span class="indent-2">people who build</span>
+      <span class="indent-3">everything else.</span>
+    </h1>
+
+    <p class="hero__footer">
+      Let’s look at some<br />
+      of our work
+    </p>
+  </div>
+</section>
+
 <section class="company-logos home-section">
   <div class="wrapper">
     <div class="section-heading">
@@ -152,51 +184,18 @@
 <section class="home-reviews home-section">
   <div class="wrapper">
     <div class="section-heading">
-      <p class="section-heading__eyebrow">Fake Reviews</p>
-      <h2>What clients say about working with Spider Design</h2>
+      <h2>What Our Clients Say</h2>
     </div>
 
     <div class="embla embla--reviews" data-embla="reviews" aria-label="Example client reviews">
       <div class="embla__viewport">
         <div class="embla__container">
-          <div class="embla__slide embla__slide--review">
-            <article class="review-card">
-              <p class="review-card__rating">★★★★★</p>
-              <p>“The whole process was straightforward, affordable, and far more collaborative than we expected. We finally have a site we are proud to share.”</p>
-              <footer>
-                <strong>Emily Carter</strong>
-                <span>Studio Lane</span>
-              </footer>
-            </article>
-          </div>
-
-          <div class="embla__slide embla__slide--review">
-            <article class="review-card">
-              <p class="review-card__rating">★★★★★</p>
-              <p>“Our old website was holding us back. Spider Design reviewed everything, fixed the weak points, and gave us a much clearer digital direction.”</p>
-              <footer>
-                <strong>Daniel Reid</strong>
-                <span>Northline Legal</span>
-              </footer>
-            </article>
-          </div>
-
-          <div class="embla__slide embla__slide--review">
-            <article class="review-card">
-              <p class="review-card__rating">★★★★★</p>
-              <p>“We needed branding, a new website, and ongoing support without a huge upfront spend. The retainer option made that possible for us.”</p>
-              <footer>
-                <strong>Sophie Wallace</strong>
-                <span>Haven Property</span>
-              </footer>
-            </article>
-          </div>
+          {% for review in reviews.items %}
+            <div class="embla__slide embla__slide--review">
+              {% include "partials/review-card.html" %}
+            </div>
+          {% endfor %}
         </div>
-      </div>
-
-      <div class="embla__controls">
-        <button type="button" class="embla__button" data-embla-prev aria-label="Previous review">Previous</button>
-        <button type="button" class="embla__button" data-embla-next aria-label="Next review">Next</button>
       </div>
     </div>
   </div>

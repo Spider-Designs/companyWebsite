@@ -1,0 +1,170 @@
+.home-case-studies {
+  padding-block: 0 4rem;
+
+  .wrapper {
+    position: relative;
+    display: grid;
+    align-items: stretch;
+    min-height: clamp(24rem, 58vw, 42rem);
+    padding: clamp(1.5rem, 4vw, 3rem);
+    overflow: hidden;
+    border-radius: 1.5rem;
+    isolation: isolate;
+  }
+
+  .hero__top {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .hero__intro,
+  .hero__footer,
+  .hero__headline {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero__intro,
+  .hero__footer {
+    font-family: "Courier New", monospace;
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .hero__intro {
+    max-width: 24ch;
+    text-align: center;
+    margin-right: clamp(0rem, 5vw, 4rem);
+  }
+
+  .hero__headline {
+    align-self: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.08em;
+    line-height: 0.82;
+    font-size: clamp(4rem, 9.4vw, 8.8rem);
+
+    span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .indent-1 {
+      margin-left: clamp(5rem, 24vw, 18rem);
+      font-size: 0.92em;
+    }
+
+    .indent-2 {
+      margin-left: clamp(8rem, 39vw, 30rem);
+      font-size: 0.92em;
+    }
+
+    .indent-3 {
+      margin-left: clamp(10rem, 46vw, 36rem);
+      font-size: 0.96em;
+    }
+  }
+
+  .hero__footer {
+    max-width: 20ch;
+    margin-bottom: clamp(1rem, 8vw, 4rem);
+  }
+
+
+  &__logo {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    z-index: 1;
+    width: min(44vw, 22rem);
+    object-fit: contain;
+    max-width: 100%;
+    transform: translate(-60%, -50%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  @media (max-width: 960px) {
+    .wrapper {
+      min-height: clamp(22rem, 72vw, 34rem);
+    }
+
+    .hero__headline {
+      font-size: clamp(3.2rem, 10vw, 6.2rem);
+
+      .indent-1 {
+        margin-left: clamp(3rem, 18vw, 10rem);
+      }
+
+      .indent-2 {
+        margin-left: clamp(4.5rem, 28vw, 15rem);
+      }
+
+      .indent-3 {
+        margin-left: clamp(5.5rem, 34vw, 18rem);
+      }
+    }
+
+    .hero__intro {
+      max-width: 26ch;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .wrapper {
+      min-height: 22rem;
+      gap: 1rem;
+      align-content: center;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .hero__top {
+      justify-content: center;
+      width: 100%;
+    }
+
+    .hero__intro,
+    .hero__footer {
+      max-width: 26ch;
+      font-size: 0.78rem;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      text-align: center;
+      margin-right: 0;
+    }
+
+    .hero__headline {
+      align-self: center;
+      justify-self: center;
+      font-size: clamp(2.4rem, 10.5vw, 4rem);
+      line-height: 0.88;
+      letter-spacing: -0.06em;
+      text-align: center;
+
+      span {
+        white-space: normal;
+      }
+
+      .indent-1,
+      .indent-2,
+      .indent-3 {
+        margin-left: 0;
+        font-size: 1em;
+      }
+    }
+
+    .hero__footer {
+      margin-bottom: 0;
+      align-self: center;
+      justify-self: center;
+    }
+
+    &__logo {
+      width: min(56vw, 16rem);
+      transform: translate(-50%, -48%);
+    }
+  }
+}
