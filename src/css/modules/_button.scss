@@ -5,5 +5,22 @@
   justify-content: center;
   padding: 0.75rem 1.5rem; 
   text-align: center;
-  text-decoration: none; 
+  text-decoration: none;
+  
+  &__cta-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border: none;
+    width: clamp(6rem, 14vw, 8rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    line-height: 1.15;
+    transition: filter 0.3s ease;
+
+    &:hover,
+    &:focus {
+      filter: brightness(1.08);
+    }
+  }
 }
+

@@ -60,6 +60,47 @@
   </div>
 </section>
 
+{# TODO: Move services section to here and align to exisiting themes #}
+{# Section for services #}
+<section class="home-services home-section">
+  <div class="wrapper">
+    <h2>Affordable Web Design &amp; SEO Services</h2>
+    <p class="home-services__intro">Everything your business needs to get online, grow, and stay ahead — all at an affordable price.</p>
+    <div class="services-list">
+      <div class="service-item">
+        <h3><a href="/services/web-design/">Web Design &amp; Development</a></h3>
+        <p>Fast, professional, mobile-friendly websites built to represent your business and convert visitors into customers.</p>
+      </div>
+      <div class="service-item">
+        <h3><a href="/services/seo/">SEO Optimisation</a></h3>
+        <p>Improve your rankings in search engines and get found by more customers searching for what you offer.</p>
+      </div>
+      <div class="service-item">
+        <h3><a href="/services/digital-marketing-design/">Digital Marketing Design</a></h3>
+        <p>Eye-catching graphics, social media assets, and campaign visuals designed to get your brand noticed online.</p>
+      </div>
+      <div class="service-item">
+        <h3><a href="/services/website-review/">Website Review</a></h3>
+        <p>Already have a website? We audit your site for performance, accessibility, SEO, and conversion opportunities, with a clear action plan.</p>
+      </div>
+      <div class="service-item">
+        <h3><a href="/services/branding-design/">Branding Design</a></h3>
+        <p>Logos, colour palettes, typography, and brand guidelines that give your business a consistent, professional identity.</p>
+      </div>
+      <div class="service-item">
+        <h3><a href="/services/hosting-maintenance/">Hosting &amp; Maintenance</a></h3>
+        <p>Reliable hosting with ongoing maintenance, updates, and support so your website stays fast, secure, and up to date.</p>
+      </div>
+    </div>
+
+    <div class="service-retainer">
+      <h3>Monthly Retainer — No Upfront Cost</h3>
+      <p>Get a professionally designed website with no upfront payment. Our monthly retainer packages bundle web design, hosting, maintenance, and ongoing support into one affordable monthly fee — so you can get online without the big initial outlay.</p>
+      <a href="/contact" class="button">Ask about retainer pricing</a>
+    </div>
+  </div>
+</section>
+
 <section class="home-case-studies home-section">
   <div class="wrapper">
     <img
@@ -89,6 +130,69 @@
       Let’s look at some<br />
       of our work
     </p>
+  </div>
+
+  <div class="wrapper">
+    <div class="content-preview-grid" aria-label="Recent case studies">
+      {% for item in collections["case-study"] | reverse | head(3) %}
+        <article class="content-preview-card content-preview-card--case-study">
+          <a href="{{ item.url }}" class="content-preview-card__link">
+            {% if item.data.previewImage %}
+              <div class="content-preview-card__media">
+                <img
+                  src="{{ item.data.previewImage }}"
+                  alt="{{ item.data.previewImageAlt | default(item.data.previewTitle | default(item.data.title)) }}"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>  
+            {% endif %}
+            <div class="content-preview-card__body--case-study">
+              <p class="content-preview-card__meta">{{ item.data.client }}</p>
+              <p class="content-preview-card__meta--secondary">{{ item.data.location }} - {{ item.data.impact}}</p>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="home-case-studies__footer">
+    <a href="/work" class="button button__cta-primary">View all our work</a>
+  </div>
+</section> 
+
+<section class="home-journal home-section">
+  <div class="wrapper">
+    <div class="section-heading">
+      <h2>Latest blog posts</h2>
+    </div>
+
+    <div class="content-preview-grid" aria-label="Latest blog posts">
+      {% for item in collections.posts | reverse | head(3) %}
+        <article class="content-preview-card">
+          {% if item.data.previewImage %}
+            <a href="{{ item.url }}" class="content-preview-card__media">
+              <img
+                src="{{ item.data.previewImage }}"
+                alt="{{ item.data.previewImageAlt | default(item.data.previewTitle | default(item.data.title)) }}"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          {% endif %}
+          <div class="content-preview-card__body">
+            <p class="content-preview-card__eyebrow">Blog post</p>
+            <h3><a href="{{ item.url }}">{{ item.data.previewTitle | default(item.data.title) }}</a></h3>
+            {% if item.data.previewSummary %}
+              <p>{{ item.data.previewSummary }}</p>
+            {% endif %}
+            {% if item.data.date %}
+              <p class="content-preview-card__meta">{{ item.data.date | readableDate }}</p>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
@@ -137,46 +241,6 @@
         <h3>Results</h3>
         <p>We are focused on measurable outcomes that matter to your business.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-{# Section for services #}
-<section class="home-services home-section">
-  <div class="wrapper">
-    <h2>Affordable Web Design &amp; SEO Services</h2>
-    <p class="home-services__intro">Everything your business needs to get online, grow, and stay ahead — all at an affordable price.</p>
-    <div class="services-list">
-      <div class="service-item">
-        <h3><a href="/services/web-design/">Web Design &amp; Development</a></h3>
-        <p>Fast, professional, mobile-friendly websites built to represent your business and convert visitors into customers.</p>
-      </div>
-      <div class="service-item">
-        <h3><a href="/services/seo/">SEO Optimisation</a></h3>
-        <p>Improve your rankings in search engines and get found by more customers searching for what you offer.</p>
-      </div>
-      <div class="service-item">
-        <h3><a href="/services/digital-marketing-design/">Digital Marketing Design</a></h3>
-        <p>Eye-catching graphics, social media assets, and campaign visuals designed to get your brand noticed online.</p>
-      </div>
-      <div class="service-item">
-        <h3><a href="/services/website-review/">Website Review</a></h3>
-        <p>Already have a website? We audit your site for performance, accessibility, SEO, and conversion opportunities, with a clear action plan.</p>
-      </div>
-      <div class="service-item">
-        <h3><a href="/services/branding-design/">Branding Design</a></h3>
-        <p>Logos, colour palettes, typography, and brand guidelines that give your business a consistent, professional identity.</p>
-      </div>
-      <div class="service-item">
-        <h3><a href="/services/hosting-maintenance/">Hosting &amp; Maintenance</a></h3>
-        <p>Reliable hosting with ongoing maintenance, updates, and support so your website stays fast, secure, and up to date.</p>
-      </div>
-    </div>
-
-    <div class="service-retainer">
-      <h3>Monthly Retainer — No Upfront Cost</h3>
-      <p>Get a professionally designed website with no upfront payment. Our monthly retainer packages bundle web design, hosting, maintenance, and ongoing support into one affordable monthly fee — so you can get online without the big initial outlay.</p>
-      <a href="/contact" class="button">Ask about retainer pricing</a>
     </div>
   </div>
 </section>

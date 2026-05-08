@@ -38,6 +38,36 @@ export default function(eleventyConfig) {
     return manifestEntry ? `/${manifestEntry.file}` : entry;
   });
 
+  eleventyConfig.addFilter('readableDate', function(value) {
+    if (!value) {
+      return '';
+    }
+
+    const date = value instanceof Date ? value : new Date(value);
+
+    if (Number.isNaN(date.getTime())) {
+      return value;
+    }
+
+    return new Intl.DateTimeFormat('en-GB', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    }).format(date);
+  });
+
+  eleventyConfig.addFilter('head', function(values, count) {
+    if (!Array.isArray(values) || count === 0) {
+      return values;
+    }
+
+    if (count < 0) {
+      return values.slice(count);
+    }
+
+    return values.slice(0, count);
+  });
+
   // Minify HTML for production builds
   if (isProduction) {
     eleventyConfig.addTransform('htmlmin', function (content) {
@@ -98,6 +128,8 @@ export default function(eleventyConfig) {
     urlPath: "/images/",
     transformOnRequest: process.env.ELEVENTY_RUN_MODE === "serve",
   });
+
+  eleventyConfig.addPassthroughCopy('src/admin');
 
   return {
     markdownTemplateEngine: 'njk',

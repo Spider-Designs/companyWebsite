@@ -2,7 +2,7 @@
 .wrapper { 
   max-width: 1200px; 
   margin-inline: auto; 
-  padding-inline: 1.5rem;
+  padding: var(--wrapper-padding);
 }
 
 /* Layout: site header / header wrapper responsibilities */
@@ -130,7 +130,7 @@
 .company-mission,
 .company-team,
 .company-cta { 
-  padding-block: 4rem; 
+  padding-block: 2rem; 
 }
 
 .home-section:first-of-type,

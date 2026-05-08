@@ -1,5 +1,5 @@
 .home-case-studies {
-  padding-block: 0 4rem;
+  padding-block: 0 1rem;
 
   .wrapper {
     position: relative;
@@ -45,11 +45,12 @@
     color: var(--color-text);
     letter-spacing: -0.08em;
     line-height: 0.82;
-    font-size: clamp(4rem, 9.4vw, 8.8rem);
+    font-size: clamp(3.5rem, 8.2vw, 7rem);
 
     span {
       display: block;
       white-space: nowrap;
+      max-width: 100%;
     }
 
     .indent-1 {
@@ -84,6 +85,12 @@
     transform: translate(-60%, -50%);
     pointer-events: none;
     mix-blend-mode: screen;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
   }
 
   @media (max-width: 960px) {
