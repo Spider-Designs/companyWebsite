@@ -130,6 +130,7 @@ export default function(eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy('src/admin');
+  eleventyConfig.addPassthroughCopy('src/fonts');
 
   return {
     markdownTemplateEngine: 'njk',

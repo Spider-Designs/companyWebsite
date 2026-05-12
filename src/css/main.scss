@@ -1,4 +1,5 @@
 // Theme (tokens first)
+@use 'theme/fonts';
 @use 'theme/theme';
 
 // Base
@@ -17,7 +18,8 @@
 @use 'modules/hero';
 @use 'modules/impact';
 @use 'modules/case-studies';
-@use 'modules/content-previews';
+@use 'modules/blog-previews';
+@use 'modules/case-study-previews';
 @use 'modules/policy';
 @use 'modules/contact';
 @use 'modules/carousel';

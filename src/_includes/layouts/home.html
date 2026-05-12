@@ -35,7 +35,7 @@
 <section class="home-impact home-section">
   <div class="wrapper">
     <div class="home-impact__intro">
-      <h2 class="home-impact__eyebrow">Our impact</h2>
+      <h2 class="home-impact__eyebrow">Our Impact</h2>
       <h3 class="home-impact__headline">Expert Web Design, Development and SEO Support</h3>
     </div>
 
@@ -120,7 +120,7 @@
     </div>
 
     <h1 class="hero__headline">
-      <span>We build</span>
+      <span class="indent-0">We build</span>
       <span class="indent-1">websites for</span>
       <span class="indent-2">people who build</span>
       <span class="indent-3">everything else.</span>
@@ -133,12 +133,12 @@
   </div>
 
   <div class="wrapper">
-    <div class="content-preview-grid" aria-label="Recent case studies">
-      {% for item in collections["case-study"] | reverse | head(3) %}
-        <article class="content-preview-card content-preview-card--case-study">
-          <a href="{{ item.url }}" class="content-preview-card__link">
+    <div class="case-study-preview-grid" aria-label="Recent case studies">
+      {% for item in collections["case-study"] | reverse | head(9) %}
+        <article class="case-study-preview-card">
+          <a href="{{ item.url }}" class="case-study-preview-card__link">
             {% if item.data.previewImage %}
-              <div class="content-preview-card__media">
+              <div class="case-study-preview-card__media">
                 <img
                   src="{{ item.data.previewImage }}"
                   alt="{{ item.data.previewImageAlt | default(item.data.previewTitle | default(item.data.title)) }}"
@@ -147,9 +147,9 @@
                 />
               </div>  
             {% endif %}
-            <div class="content-preview-card__body--case-study">
-              <p class="content-preview-card__meta">{{ item.data.client }}</p>
-              <p class="content-preview-card__meta--secondary">{{ item.data.location }} - {{ item.data.impact}}</p>
+            <div class="case-study-preview-card__body">
+              <p class="case-study-preview-card__meta">{{ item.data.client }}</p>
+              <p class="case-study-preview-card__meta-secondary">{{ item.data.location }} - {{ item.data.impact}}</p>
             </div>
           </a>
         </article>
@@ -157,7 +157,7 @@
     </div>
   </div>
   <div class="home-case-studies__footer">
-    <a href="/work" class="button button__cta-primary">View all our work</a>
+    <a href="/work" class="button button__cta-primary">View all our work →</a>
   </div>
 </section> 
 
@@ -167,29 +167,34 @@
       <h2>Latest blog posts</h2>
     </div>
 
-    <div class="content-preview-grid" aria-label="Latest blog posts">
+    <div class="blog-preview-grid" aria-label="Latest blog posts">
       {% for item in collections.posts | reverse | head(3) %}
-        <article class="content-preview-card">
-          {% if item.data.previewImage %}
-            <a href="{{ item.url }}" class="content-preview-card__media">
-              <img
-                src="{{ item.data.previewImage }}"
-                alt="{{ item.data.previewImageAlt | default(item.data.previewTitle | default(item.data.title)) }}"
-                loading="lazy"
-                decoding="async"
-              />
-            </a>
-          {% endif %}
-          <div class="content-preview-card__body">
-            <p class="content-preview-card__eyebrow">Blog post</p>
-            <h3><a href="{{ item.url }}">{{ item.data.previewTitle | default(item.data.title) }}</a></h3>
-            {% if item.data.previewSummary %}
-              <p>{{ item.data.previewSummary }}</p>
+        <article class="blog-preview-card">
+          <a href="{{ item.url }}" class="blog-preview-card__link">
+            {% if item.data.previewImage %}
+              <div class="blog-preview-card__media">
+                <img
+                  src="{{ item.data.previewImage }}"
+                  alt="{{ item.data.previewImageAlt | default(item.data.previewTitle | default(item.data.title)) }}"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             {% endif %}
-            {% if item.data.date %}
-              <p class="content-preview-card__meta">{{ item.data.date | readableDate }}</p>
-            {% endif %}
-          </div>
+            <div class="blog-preview-card__body">
+              <div class="blog-preview-card__content">
+                <h3>{{ item.data.previewTitle | default(item.data.title) }}</h3>
+                {% if item.data.previewSummary %}
+                  <p>{{ item.data.previewSummary }}</p>
+                {% endif %}
+              </div>
+              <div class="blog-preview-card__meta-row">
+                {% if item.data.date %}
+                  <p class="blog-preview-card__meta">{{ item.data.date | readableDate }}</p>
+                {% endif %}
+              </div>
+            </div>
+          </a>
         </article>
       {% endfor %}
     </div>
@@ -199,47 +204,29 @@
 <section class="company-logos home-section">
   <div class="wrapper">
     <div class="section-heading">
-      <p class="section-heading__eyebrow">Worked With</p>
-      <h2>Dummy carousel for companies we have supported</h2>
+      <h2>Trusted by</h2>
     </div>
 
-    <div class="logo-ticker" aria-label="Example client logos">
-      <div class="logo-ticker__track">
-        <div class="logo-pill">BrightShop</div>
-        <div class="logo-pill">Northline Legal</div>
-        <div class="logo-pill">Oak &amp; Ash</div>
-        <div class="logo-pill">Marlow Fitness</div>
-        <div class="logo-pill">Haven Property</div>
-        <div class="logo-pill">Studio Lane</div>
-        <div class="logo-pill">BrightShop</div>
-        <div class="logo-pill">Northline Legal</div>
-        <div class="logo-pill">Oak &amp; Ash</div>
-        <div class="logo-pill">Marlow Fitness</div>
-        <div class="logo-pill">Haven Property</div>
-        <div class="logo-pill">Studio Lane</div>
+    <div class="industry-list" aria-label="Industries we support">
+      <div class="industry-list__row industry-list__row--five">
+        <span class="industry-list__item">Construction</span>
+        <span class="industry-list__dot" aria-hidden="true"></span>
+        <span class="industry-list__item">Architecture</span>
+        <span class="industry-list__dot" aria-hidden="true"></span>
+        <span class="industry-list__item">Property</span>
+        <span class="industry-list__dot" aria-hidden="true"></span>
+        <span class="industry-list__item">Retail</span>
+        <span class="industry-list__dot" aria-hidden="true"></span>
+        <span class="industry-list__item">Professional Services</span>
       </div>
-    </div>
-  </div>
-</section>
-
-{# Mission & Values #}
-<section class="company-mission home-section">
-  <div class="wrapper">
-    <h2>Our Mission</h2>
-    <p>To make high-quality web design and SEO affordable for every business — delivering professional, results-driven websites that grow your online presence.</p>
-
-    <div class="values-list">
-      <div class="value-item">
-        <h3>Integrity</h3>
-        <p>We are transparent and honest in everything we do.</p>
-      </div>
-      <div class="value-item">
-        <h3>Affordability</h3>
-        <p>We keep our pricing honest and straightforward, so professional web design and SEO stays accessible to every business.</p>
-      </div>
-      <div class="value-item">
-        <h3>Results</h3>
-        <p>We are focused on measurable outcomes that matter to your business.</p>
+      <div class="industry-list__row industry-list__row--four">
+        <span class="industry-list__item">Healthcare</span>
+        <span class="industry-list__dot" aria-hidden="true"></span>
+        <span class="industry-list__item">Hospitality</span>
+        <span class="industry-list__dot" aria-hidden="true"></span>
+        <span class="industry-list__item">Legal</span>
+        <span class="industry-list__dot" aria-hidden="true"></span>
+        <span class="industry-list__item">Local Trades</span>
       </div>
     </div>
   </div>

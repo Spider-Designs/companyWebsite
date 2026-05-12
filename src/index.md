@@ -6,5 +6,5 @@ pageScripts:
   - '/src/js/home-carousels.js'
 page:
   title: 'SPIDER<br>DESIGN'
-  description: '© 2026 Spider Design Ltd | Registered in Scotland | BUILDING WEBSITES FOR THOSE WHO BUILD EVERYTHING ELSE'
+  description: 'BUILDING WEBSITES FOR THOSE WHO BUILD EVERYTHING ELSE'
 ---

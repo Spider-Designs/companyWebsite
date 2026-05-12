@@ -1,3 +1,6 @@
+---
+title: Content Manager
+---
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,12 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <title>Content Manager</title>
+    <title>
+      {{ title }}
+    </title>
   </head>
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
+      {# TODO: Align closer with site css #}
       const createPreviewElement = window.h;
       const createPreviewClass = window.createClass;
 
@@ -52,7 +58,7 @@
         }).format(date);
       }
 
-{# TODO: Change depending on collection #}
+      {# TODO: Change depending on collection #}
       function buildCollectionPreview(collectionLabel) {
         return createPreviewClass({
           render: function() {

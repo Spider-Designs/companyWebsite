@@ -1,7 +1,8 @@
 backend:
   name: git-gateway
   branch: main
-# local_backend: true # For local testing
+# TODO: Make dynamic rather than editing all the time for local testing
+local_backend: true # For local testing
 media_folder: "src/images/uploads"
 public_folder: "/images/uploads"
 collections:
