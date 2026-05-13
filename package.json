@@ -1,7 +1,7 @@
 {
-  "name": "company-website",
+  "name": "spider-design-ltd-website",
   "version": "1.0.0",
-  "description": "The website for Our Company",
+  "description": "The website for Spider Design Ltd, a web design company based in the UK.",
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm:dev:vite\" \"npm:dev:11ty\"",
@@ -15,7 +15,7 @@
     "preview": "npm run production && npx serve dist"
   },
   "keywords": [],
-  "author": "Our Company",
+  "author": "Spider Design Ltd",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
