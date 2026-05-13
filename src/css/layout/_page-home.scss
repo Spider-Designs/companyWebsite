@@ -1,4 +1,11 @@
-// _services.scss
+// _page-home.scss
+// Layout rules specific to the home page.
+
+.home-hero,
+.home-services {
+  padding-block: 2rem;
+}
+
 .services-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -13,7 +20,7 @@
   }
 }
 
-.service-item { 
-  padding: 1.5rem; 
-  border-radius: 0.5rem; 
+.service-item {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
 }

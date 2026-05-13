@@ -1,10 +1,10 @@
 /* Module: homepage proof / carousel sections */
+// TODO: Refactor to separate out carousel styles from the homepage-specific ones, and make the carousel more reusable across the site (e.g. for case studies, values, etc.)
 .company-logos,
 .home-reviews {
   padding-block: 4rem;
 }
-
-.section-heading {
+.carousel-heading {
   margin-bottom: 1.5rem;
 
   h2 {

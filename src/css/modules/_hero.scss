@@ -42,9 +42,6 @@
     font-size: clamp(6rem, 14vw, 15rem);
     margin: 0 0 0.5rem;
     line-height: 1.05;
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-weight: 400;
   }
 
   &__content {
@@ -84,17 +81,6 @@
     flex: 0 0 auto;
     position: relative;
     z-index: 1;
-    background: var(--color-primary);
-    color: var(--color-text);
-    width: clamp(6.5rem, 30vw, 7.5rem);
-    aspect-ratio: 1;
-    padding: 1rem;
-    border-radius: 50%;
-    text-decoration: none;
-    font-family: var(--font-body);
-    font-weight: 600;
-    line-height: 1.5;
-    text-transform: uppercase;
   }
 
   @media (max-width: 550px) {
@@ -134,11 +120,7 @@
       display: none;
     }
 
-    &__cta-primary {
-      width: 100%;
-      aspect-ratio: auto;
-      border-radius: 0.75rem;
-    }
+
   }
 }
 

@@ -1,44 +1,4 @@
-/* Module: contact page */
-.contact-hero,
-.contact-page {
-  padding-block: 4rem;
-}
-
-.contact-page__grid {
-  display: grid;
-  gap: 2rem;
-  align-items: start;
-
-  @media (min-width: 820px) {
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 34rem);
-  }
-}
-
-.contact-hero__lead {
-  max-width: 60ch;
-  margin-top: 1rem;
-}
-
-.contact-page__intro {
-  max-width: 70ch;
-
-  ul {
-    padding-left: 1.25rem;
-  }
-
-  li,
-  p {
-    line-height: 1.7;
-  }
-}
-
-.contact-page__form-wrap {
-  padding: 1.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 0.75rem;
-  background: rgba(0, 0, 0, 0.02);
-}
-
+/* Module: contact form */
 .contact-form {
   display: grid;
   gap: 1rem;

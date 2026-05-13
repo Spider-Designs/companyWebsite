@@ -7,7 +7,9 @@
 
 /* Layout: site header / header wrapper responsibilities */
 .site-head {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   background: var(--nav-bg);
   border-bottom: 1px solid rgba(0,0,0,0.04);
 
@@ -58,6 +60,22 @@
   display: flex; 
   flex-direction: column; 
   min-height: 100vh; 
+}
+
+// Divider between consecutive page sections
+section + section {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(100% - 3rem, 1200px);
+    height: 1px;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.22);
+  }
 }
 
 .site-foot {
@@ -122,30 +140,4 @@
       text-underline-offset: 0.2em;
     }
   }
-}
-
-// Page-level sections are also layout
-.home-hero,
-.home-services,
-.company-mission,
-.company-team,
-.company-cta { 
-  padding-block: 2rem; 
-}
-
-.home-section:first-of-type,
-.home-section + .home-section {
-  position: relative;
-}
-
-.home-section:first-of-type::before,
-.home-section + .home-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: min(100% - 3rem, 1200px);
-  height: 1px;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.22);
 }

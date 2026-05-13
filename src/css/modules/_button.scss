@@ -6,22 +6,28 @@
   padding: 0.75rem 0.75rem; 
   text-align: center;
   text-decoration: none;
-  
-  &__cta-primary {
-    background-color: var(--color-primary);
-    color: var(--color-text);
-    border: none;
-    width: clamp(7rem, 14vw, 8rem);
+
+  &--circle {
+    background: var(--color-primary);
+    width: clamp(6.5rem, 30vw, 7.5rem);
     aspect-ratio: 1;
+    padding: 1rem;
     border-radius: 50%;
-    line-height: 1.15;
-    transition: filter 0.3s ease;
+    font-weight: 600;
+    line-height: 1.5;
     text-transform: uppercase;
-    font-weight: medium;
+    text-decoration: none;
+    transition: filter 0.3s ease;
 
     &:hover,
     &:focus {
       filter: brightness(1.08);
+    }
+
+    @media (max-width: 550px) {
+      width: 100%;
+      aspect-ratio: auto;
+      border-radius: 0.75rem;
     }
   }
 }

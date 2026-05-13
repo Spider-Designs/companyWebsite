@@ -1,0 +1,126 @@
+// _page-about.scss
+// Layout rules specific to the About page.
+
+.company-mission,
+.company-team,
+.company-cta {
+  padding-block: 2rem;
+}
+
+.expertise {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  column-gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  .heading {
+    margin-top: 0;
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.expertise__list {
+  columns: 2;
+  column-gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    break-inside: avoid;
+    padding-block: 0.5rem;
+    // border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  @media (max-width: 700px) {
+    columns: 1;
+  }
+}
+
+.about-hero {
+  &.impact .wrapper {
+    grid-template-areas:
+      "title  facts"
+      "team   paragraph";
+  }
+
+  &__title {
+    grid-area: title;
+    margin: 0;
+    font-size: 4rem;
+  }
+
+  .impact__grid {
+    grid-area: facts;
+  }
+
+  &__team {
+    grid-area: team;
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .team-list {
+      grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+      gap: 1rem;
+      justify-content: start;
+    }
+
+    .team-item {
+      text-align: left;
+    }
+
+    .team-item__avatar {
+      aspect-ratio: 1 / 1;
+      margin-inline: 0;
+    }
+  }
+
+  &__paragraph {
+    grid-area: paragraph;
+    opacity: 0.8;
+    line-height: 1.7;
+    align-self: center;
+  }
+
+  @media (max-width: 800px) {
+    &.impact .wrapper {
+      grid-template-areas: none;
+    }
+
+    &__title,
+    .impact__grid,
+    &__team,
+    &__paragraph {
+      grid-area: auto;
+    }
+
+    &__team {
+      order: 1;
+      text-align: center;
+      align-items: center;
+
+      .team-list {
+        justify-content: center;
+      }
+
+      .team-item {
+        text-align: center;
+      }
+
+      .team-item__avatar {
+        margin-inline: auto;
+      }
+    }
+
+    &__paragraph {
+      order: -1;
+    }
+  }
+}

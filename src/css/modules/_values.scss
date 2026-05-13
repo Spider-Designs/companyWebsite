@@ -1,1 +1,33 @@
-// Might not use but being imported in main.scss just in case
+// _values.scss
+.values-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.value-item {
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+
+  h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  p {
+    margin: 0;
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+}

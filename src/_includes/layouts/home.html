@@ -18,28 +18,29 @@
 
   <div class="home-hero__inner wrapper">
     <div class="home-hero__content">
-      <h1 class="home-hero__title" aria-label="{{ page.title | striptags }}">{{ page.title | safe }}</h1>
+      <h1 class="home-hero__title heading" aria-label="{{ page.title | striptags }}">{{ page.title | safe }}</h1>
       <div class="home-hero__cta-container">
         <p class="home-hero__lead-ticker" aria-label="{{ page.description }}">
+          {# TODO: Fix pop in #}
           <span class="home-hero__lead-track">
             <span class="home-hero__lead-copy">{{ page.description }}</span>
             <span class="home-hero__lead-copy" aria-hidden="true">{{ page.description }}</span>
           </span>
         </p>
-        <a href="/contact" class="button home-hero__cta-primary" aria-label="Start a project with {{ site.name }}">Start a project →</a>
+        <a href="/contact" class="button button--circle home-hero__cta-primary" aria-label="Start a project with {{ site.name }}">Start a project →</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="home-impact home-section">
+<section class="impact home-section">
   <div class="wrapper">
-    <div class="home-impact__intro">
-      <h2 class="home-impact__eyebrow">Our Impact</h2>
-      <h3 class="home-impact__headline">Expert Web Design, Development and SEO Support</h3>
+    <div class="impact__intro">
+      <h2 class="impact__eyebrow heading">Our Impact</h2>
+      <h3 class="impact__headline">Expert Web Design, Development and SEO Support</h3>
     </div>
 
-    <div class="home-impact__grid" aria-label="Spider Design impact highlights">
+    <div class="impact__grid" aria-label="Spider Design impact highlights">
       <article class="impact-card">
         <p class="impact-card__value">40+</p>
         <p class="impact-card__label">projects launched for trades, local services, and growing teams</p>
@@ -64,7 +65,7 @@
 {# Section for services #}
 <section class="home-services home-section">
   <div class="wrapper">
-    <h2>Affordable Web Design &amp; SEO Services</h2>
+    <h2 class="heading">Web Design &amp; SEO Services</h2>
     <p class="home-services__intro">Everything your business needs to get online, grow, and stay ahead — all at an affordable price.</p>
     <div class="services-list">
       <div class="service-item">
@@ -157,54 +158,14 @@
     </div>
   </div>
   <div class="home-case-studies__footer">
-    <a href="/work" class="button button__cta-primary">View all our work →</a>
+    <a href="/work" class="button button--circle">View all our work →</a>
   </div>
 </section> 
-
-<section class="home-journal home-section">
-  <div class="wrapper">
-    <div class="section-heading">
-      <h2>Latest blog posts</h2>
-    </div>
-
-    <div class="blog-preview-grid" aria-label="Latest blog posts">
-      {% for item in collections.posts | reverse | head(3) %}
-        <article class="blog-preview-card">
-          <a href="{{ item.url }}" class="blog-preview-card__link">
-            {% if item.data.previewImage %}
-              <div class="blog-preview-card__media">
-                <img
-                  src="{{ item.data.previewImage }}"
-                  alt="{{ item.data.previewImageAlt | default(item.data.previewTitle | default(item.data.title)) }}"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            {% endif %}
-            <div class="blog-preview-card__body">
-              <div class="blog-preview-card__content">
-                <h3>{{ item.data.previewTitle | default(item.data.title) }}</h3>
-                {% if item.data.previewSummary %}
-                  <p>{{ item.data.previewSummary }}</p>
-                {% endif %}
-              </div>
-              <div class="blog-preview-card__meta-row">
-                {% if item.data.date %}
-                  <p class="blog-preview-card__meta">{{ item.data.date | readableDate }}</p>
-                {% endif %}
-              </div>
-            </div>
-          </a>
-        </article>
-      {% endfor %}
-    </div>
-  </div>
-</section>
 
 <section class="company-logos home-section">
   <div class="wrapper">
     <div class="section-heading">
-      <h2>Trusted by</h2>
+      <h2 class="heading">Trusted by</h2>
     </div>
 
     <div class="industry-list" aria-label="Industries we support">
@@ -235,7 +196,7 @@
 <section class="home-reviews home-section">
   <div class="wrapper">
     <div class="section-heading">
-      <h2>What Our Clients Say</h2>
+      <h2 class="heading">What Our Clients Say</h2>
     </div>
 
     <div class="embla embla--reviews" data-embla="reviews" aria-label="Example client reviews">

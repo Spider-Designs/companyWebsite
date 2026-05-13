@@ -8,11 +8,14 @@
 
 // Layout
 @use 'layout/layout';
+@use 'layout/page-home';
+@use 'layout/page-about';
+@use 'layout/page-contact';
+@use 'layout/page-policy';
 
 // Modules
 @use 'modules/nav';
 @use 'modules/button';
-@use 'modules/services';
 @use 'modules/values';
 @use 'modules/team';
 @use 'modules/hero';
@@ -20,7 +23,6 @@
 @use 'modules/case-studies';
 @use 'modules/blog-previews';
 @use 'modules/case-study-previews';
-@use 'modules/policy';
 @use 'modules/contact';
 @use 'modules/carousel';
 
