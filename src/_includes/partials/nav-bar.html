@@ -1,11 +1,10 @@
-{# TODO: CSS & Classes to be assessed at a later date #}
-
 <a class="[ skip-link ] [ button ]" href="#main-content">Skip to content</a>
 <header role="banner" class="site-head">
 	<div class="wrapper">
 		<div class="site-head__inner">
 			<a href="/" aria-label="{{ site.name }} - home" class="site-head__brand">
 				{% include "partials/brand.svg" %}
+				<h2 class="site-head__brand-name heading">{{ site.name }}</h2>
 			</a>
 			<button class="nav__hamburger" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
 				<span class="nav__hamburger-icon" aria-hidden="true"></span>

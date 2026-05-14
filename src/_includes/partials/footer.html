@@ -1,0 +1,41 @@
+<footer role="contentinfo" class="site-foot">
+	<div class="wrapper">
+		<div class="site-foot__inner">
+			<div class="site-foot__brand">
+				<p class="site-foot__title">Spider Design Ltd</p>
+				<p>Web design, SEO, and digital support for growing businesses.</p>
+        <p>Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        <nav class="site-foot__social" aria-label="Social media">
+					<a href="{{ site.social.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="Spider Design on LinkedIn">
+						{% include "partials/icon-linkedin.svg" %}
+					</a>
+				</nav>
+			</div>
+
+			<nav class="site-foot__services" aria-label="Services">
+				<p class="site-foot__title">Services</p>
+				<ul role="list">
+					<li><a href="/services/web-design/">Web Design &amp; Development</a></li>
+					<li><a href="/services/branding-design/">Branding Design</a></li>
+          <li><a href="/services/seo/">SEO Optimisation</a></li>
+					<li><a href="/services/digital-marketing-design/">Digital Marketing Design</a></li>
+					<li><a href="/services/hosting-maintenance/">Hosting &amp; Maintenance</a></li>
+					<li><a href="/services/website-review/">Website Review</a></li>
+				</ul>
+			</nav>
+
+			<div class="site-foot__bottom">
+				<div class="site-foot__meta">
+					<p>Spider Design is a trading name of Spider Design Ltd</p>
+					<p>Company No: SC887743, Registered in Scotland</p>
+					<p>Copyright © 2026 | Spider Design Ltd</p>
+				</div>
+
+				<nav class="site-foot__policies" aria-label="Legal">
+					<a href="/policies/privacy-policy/">Privacy Policy</a>
+					<a href="/policies/ai-ethics-policy/">AI Ethics Policy</a>
+				</nav>
+			</div>
+		</div>
+	</div>
+</footer>

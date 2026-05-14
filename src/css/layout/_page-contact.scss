@@ -11,7 +11,7 @@
   gap: 2rem;
   align-items: start;
 
-  @media (min-width: 820px) {
+  @media (min-width: 950px) {
     grid-template-columns: minmax(0, 1fr) minmax(320px, 34rem);
   }
 }

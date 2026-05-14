@@ -26,6 +26,12 @@
     text-decoration: none;
   }
 
+  &__brand-name {
+    margin-left: 1rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
   &__nav {
     margin-left: auto;
 
@@ -78,66 +84,4 @@ section + section {
   }
 }
 
-.site-foot {
-  margin-top: auto;
-  padding-block: 2.5rem;
-  background: var(--color-primary);
-  color: #fff;
 
-  a {
-    color: inherit;
-  }
-
-  &__inner {
-    display: grid;
-    gap: 1.5rem;
-
-    @media (min-width: 760px) {
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto;
-      align-items: start;
-    }
-  }
-
-  &__title {
-    margin: 0 0 0.5rem;
-    font-size: 1.15rem;
-    font-weight: 700;
-  }
-
-  &__brand,
-  &__meta {
-    p {
-      margin: 0;
-      line-height: 1.6;
-    }
-  }
-
-  &__brand {
-    p + p {
-      opacity: 0.92;
-    }
-  }
-
-  &__meta {
-    display: grid;
-    gap: 0.35rem;
-    opacity: 0.95;
-  }
-
-  &__policies {
-    display: grid;
-    gap: 0.5rem;
-    align-content: start;
-
-    a {
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    a:hover,
-    a:focus {
-      text-decoration: underline;
-      text-underline-offset: 0.2em;
-    }
-  }
-}

@@ -21,9 +21,10 @@
       <h1 class="home-hero__title heading" aria-label="{{ page.title | striptags }}">{{ page.title | safe }}</h1>
       <div class="home-hero__cta-container">
         <p class="home-hero__lead-ticker" aria-label="{{ page.description }}">
-          {# TODO: Fix pop in #}
           <span class="home-hero__lead-track">
             <span class="home-hero__lead-copy">{{ page.description }}</span>
+            <span class="home-hero__lead-copy" aria-hidden="true">{{ page.description }}</span>
+            <span class="home-hero__lead-copy" aria-hidden="true">{{ page.description }}</span>
             <span class="home-hero__lead-copy" aria-hidden="true">{{ page.description }}</span>
           </span>
         </p>
@@ -61,12 +62,11 @@
   </div>
 </section>
 
-{# TODO: Move services section to here and align to exisiting themes #}
 {# Section for services #}
 <section class="home-services home-section">
   <div class="wrapper">
     <h2 class="heading">Web Design &amp; SEO Services</h2>
-    <p class="home-services__intro">Everything your business needs to get online, grow, and stay ahead — all at an affordable price.</p>
+    <p class="home-services__intro">Everything your business needs to get online, grow, and stay ahead.</p>
     <div class="services-list">
       <div class="service-item">
         <h3><a href="/services/web-design/">Web Design &amp; Development</a></h3>
@@ -165,7 +165,7 @@
 <section class="company-logos home-section">
   <div class="wrapper">
     <div class="section-heading">
-      <h2 class="heading">Trusted by</h2>
+      <h2 class="heading centre">Trusted by</h2>
     </div>
 
     <div class="industry-list" aria-label="Industries we support">
@@ -196,7 +196,7 @@
 <section class="home-reviews home-section">
   <div class="wrapper">
     <div class="section-heading">
-      <h2 class="heading">What Our Clients Say</h2>
+      <h2 class="heading centre">What Our Clients Say</h2>
     </div>
 
     <div class="embla embla--reviews" data-embla="reviews" aria-label="Example client reviews">

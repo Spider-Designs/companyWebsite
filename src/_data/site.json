@@ -1,4 +1,9 @@
 {
   "name": "Spider Design",
-  "url": "https://spiderdesign.co.uk"
+  "url": "https://spiderdesign.co.uk",
+  "email": "hello@spiderdesign.co.uk",
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/spider-design-ltd/"
+  },
+  "logo": "/images/SpiderDesignLogoSVG.svg"
 }
