@@ -105,8 +105,8 @@
 <section class="home-case-studies home-section">
   <div class="wrapper">
     <img
-      src="/images/LargeLogo.svg"
-      alt="Spider Design Logo"
+      src="{{ site.logo }}"
+      alt="{{ site.name }} Logo"
       aria-hidden="true"
       loading="lazy"
       decoding="async"
@@ -136,24 +136,7 @@
   <div class="wrapper">
     <div class="case-study-preview-grid" aria-label="Recent case studies">
       {% for item in collections["case-study"] | reverse | head(9) %}
-        <article class="case-study-preview-card">
-          <a href="{{ item.url }}" class="case-study-preview-card__link">
-            {% if item.data.previewImage %}
-              <div class="case-study-preview-card__media">
-                <img
-                  src="{{ item.data.previewImage }}"
-                  alt="{{ item.data.previewImageAlt | default(item.data.previewTitle | default(item.data.title)) }}"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>  
-            {% endif %}
-            <div class="case-study-preview-card__body">
-              <p class="case-study-preview-card__meta">{{ item.data.client }}</p>
-              <p class="case-study-preview-card__meta-secondary">{{ item.data.location }} - {{ item.data.impact}}</p>
-            </div>
-          </a>
-        </article>
+        {% include "partials/case-study-preview-card.html" %}
       {% endfor %}
     </div>
   </div>

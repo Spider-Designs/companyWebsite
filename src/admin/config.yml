@@ -38,4 +38,29 @@ collections:
       - {label: "tags", name: "tags", widget: "list", default: ["case-study"]}
       - {label: "Preview Image", name: "previewImage", widget: "image", required: false}
       - {label: "Preview Image Alt", name: "previewImageAlt", widget: "string", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Hero Image", name: "heroImage", widget: "image", required: false}
+      - {label: "Hero Image Alt", name: "heroImageAlt", widget: "string", required: false}
+      - {label: "Brief", name: "brief", widget: "markdown", required: false, hint: "Short description of the client's brief"}
+      - label: "Gallery Images"
+        name: "galleryImages"
+        widget: "list"
+        required: false
+        hint: "A couple of images shown after the brief"
+        fields:
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Alt Text", name: "alt", widget: "string", required: false}
+      - {label: "Approach", name: "approach", widget: "markdown", required: false, hint: "How you tackled the project"}
+      - {label: "Mid Hero Image", name: "midHeroImage", widget: "image", required: false}
+      - {label: "Mid Hero Image Alt", name: "midHeroImageAlt", widget: "string", required: false}
+      - {label: "Client Quote", name: "quote", widget: "string", required: false}
+      - {label: "Quote Author", name: "quoteAuthor", widget: "string", required: false}
+      - label: "Quote Images"
+        name: "quoteImages"
+        widget: "list"
+        required: false
+        hint: "Group of images shown alongside or after the client quote"
+        fields:
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Alt Text", name: "alt", widget: "string", required: false}
+      - {label: "Results", name: "results", widget: "markdown", required: false, hint: "Outcomes and impact of the project"}
+      - {label: "Body", name: "body", widget: "markdown", required: false}

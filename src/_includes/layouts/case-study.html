@@ -2,20 +2,112 @@
 
 {% block content %}
 
-{# TODO: Update template to look better #}
-<section class="case-study-hero">
-  <div class="wrapper">
-    <h1>{{ title }}</h1>
-    {% if date %}
-      <p class="case-study-hero__meta">Published: {{ date }}</p>
-    {% endif %}
+{# 1. Hero Picture #}
+<section class="cs-hero">
+  {% if heroImage %}
+    <div class="cs-hero__media">
+      <img src="{{ heroImage }}" alt="{{ heroImageAlt | default(client | default(title)) }}" loading="eager" decoding="async" />
+    </div>
+  {% endif %}
+  <div class="wrapper cs-hero__content">
+    <p class="cs-hero__eyebrow">{{ location }}{% if date %} &mdash; {{ date | readableDate }}{% endif %}</p>
+    <h1>{{ client }}</h1>
+    {% if impact %}<p class="cs-hero__impact">{{ impact }}</p>{% endif %}
   </div>
 </section>
 
-<section class="case-study-content">
-  <div class="wrapper case-study-content__inner">
-    {{ content | safe }}
-  </div>
-</section>
+{# 2. Brief Section #}
+{% if brief %}
+  <section class="cs-section cs-brief">
+    <div class="wrapper cs-section__inner">
+      <h2 class="cs-section__label">Brief</h2>
+      <div class="cs-section__body prose">{{ brief | markdownify | safe }}</div>
+    </div>
+  </section>
+{% endif %}
+
+{# 3. Couple of pictures #}
+{% if galleryImages and galleryImages.length %}
+  <section class="cs-gallery cs-gallery--pair">
+    <div class="wrapper">
+      <div class="cs-gallery__grid">
+        {% for img in galleryImages %}
+          <div class="cs-gallery__item">
+            <img src="{{ img.image }}" alt="{{ img.alt | default('') }}" loading="lazy" decoding="async" />
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{# 4. Approach Section #}
+{% if approach %}
+  <section class="cs-section cs-approach">
+    <div class="wrapper cs-section__inner">
+      <h2 class="cs-section__label">Approach</h2>
+      <div class="cs-section__body prose">{{ approach | markdownify | safe }}</div>
+    </div>
+  </section>
+{% endif %}
+
+{# 5. Mid Hero Image #}
+{% if midHeroImage %}
+  <section class="cs-mid-hero">
+    <img src="{{ midHeroImage }}" alt="{{ midHeroImageAlt | default('') }}" loading="lazy" decoding="async" />
+  </section>
+{% endif %}
+
+{# 6. Client Quote #}
+{% if quote %}
+  <section class="cs-quote">
+    <div class="wrapper">
+      <blockquote class="cs-quote__block">
+        <p class="cs-quote__text">&ldquo;{{ quote }}&rdquo;</p>
+        {% if quoteAuthor %}<cite class="cs-quote__cite">&mdash; {{ quoteAuthor }}</cite>{% endif %}
+      </blockquote>
+    </div>
+  </section>
+{% endif %}
+
+{# 7. Group of images #}
+{% if quoteImages and quoteImages.length %}
+  <section class="cs-gallery cs-gallery--group">
+    <div class="wrapper">
+      <div class="cs-gallery__grid">
+        {% for img in quoteImages %}
+          <div class="cs-gallery__item">
+            <img src="{{ img.image }}" alt="{{ img.alt | default('') }}" loading="lazy" decoding="async" />
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{# 8. Results #}
+{% if results %}
+  <section class="cs-section cs-results">
+    <div class="wrapper cs-section__inner">
+      <h2 class="cs-section__label">Results</h2>
+      <div class="cs-section__body prose">{{ results | markdownify | safe }}</div>
+    </div>
+  </section>
+{% endif %}
+
+{# 9. Other case studies #}
+{% set otherStudies = collections["case-study"] | reverse %}
+{% if otherStudies and otherStudies.length %}
+  <section class="cs-more">
+    <div class="wrapper">
+      <h2 class="cs-more__heading">More Case Studies</h2>
+      <div class="case-study-preview-grid">
+        {% for item in otherStudies | head(3) %}
+          {% include "partials/case-study-preview-card.html" %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
 
 {% endblock %}

@@ -1,0 +1,18 @@
+<article class="case-study-preview-card">
+	<a href="{{ item.url }}" class="case-study-preview-card__link">
+		{% if item.data.previewImage %}
+			<div class="case-study-preview-card__media">
+				<img
+					src="{{ item.data.previewImage }}"
+					alt="{{ item.data.previewImageAlt }}"
+					loading="lazy"
+					decoding="async"
+				/>
+			</div>
+		{% endif %}
+		<div class="case-study-preview-card__body">
+			<p class="case-study-preview-card__meta">{{ item.data.client }}</p>
+			<p class="case-study-preview-card__meta-secondary">{{ item.data.location | default('Scotland') }}{% if item.data.impact %} &mdash; {{ item.data.impact }}{% endif %}</p>
+		</div>
+	</a>
+</article>

@@ -2,17 +2,53 @@
 
 {% block content %}
 
-{# TODO: Update layout to use the case studies #}
-<section class="work-landing">
+<section class="work-landing-hero">
   <div class="wrapper">
-    <h1>{{ page.title }}</h1>
-    <p>{{ page.description }}</p>
+    <p class="work-landing-hero__eyebrow">Selected Projects</p>
+    <h1>{{ title }}</h1>
+    {% if page.description %}
+      <p class="work-landing-hero__lead">{{ page.description }}</p>
+    {% endif %}
   </div>
 </section>
 
-<section class="work-content">
+<section class="work-landing-content">
   <div class="wrapper">
-    {{ content | safe }}
+    {% if content %}
+      <div class="work-landing-content__intro">
+        {{ content | safe }}
+      </div>
+    {% endif %}
+
+    {% set caseStudies = collections["case-study"] | reverse %}
+    {% if caseStudies and caseStudies.length %}
+      <div class="work-blocks">
+        {% for item in caseStudies %}
+          <article class="work-block{% if loop.index is even %} work-block--flip{% endif %}">
+            {% if item.data.previewImage %}
+              <div class="work-block__media">
+                <img
+                  src="{{ item.data.previewImage }}"
+                  alt="{{ item.data.previewImageAlt | default(item.data.title) }}"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            {% endif %}
+            <div class="work-block__body">
+              <p class="work-block__eyebrow">{{ item.data.location | default('Scotland') }}</p>
+              <h2 class="work-block__title">{{ item.data.client | default(item.data.title) }}</h2>
+              {% if item.data.impact %}
+                <p class="work-block__impact">{{ item.data.impact }}</p>
+              {% endif %}
+              <a href="{{ item.url }}" class="button work-block__cta">View project</a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No case studies published yet.</p>
+    {% endif %}
   </div>
 </section>
 

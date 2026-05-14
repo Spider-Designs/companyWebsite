@@ -1,0 +1,211 @@
+// _page-case-study.scss
+
+// ─── Hero ────────────────────────────────────────────────────────────────────
+
+.cs-hero {
+  position: relative;
+  min-height: clamp(18rem, 55vh, 36rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+
+  &__media {
+    position: absolute;
+    inset: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%);
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    padding-block: 2.5rem;
+  }
+
+  &__eyebrow {
+    margin: 0 0 0.4rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    color: #fff;
+  }
+
+  h1 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.05;
+    color: #fff;
+  }
+
+  &__impact {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.9;
+    color: #fff;
+  }
+}
+
+// ─── Shared two-column section ───────────────────────────────────────────────
+
+.cs-section {
+  padding-block: 3.5rem;
+
+  &__inner {
+    display: grid;
+    gap: 2rem;
+
+    @media (min-width: 760px) {
+      grid-template-columns: 14rem 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+  }
+
+  &__label {
+    margin: 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    padding-top: 0.3rem;
+  }
+
+  &__body {
+    max-width: 72ch;
+  }
+}
+
+// ─── Prose (markdown output) ─────────────────────────────────────────────────
+
+.prose {
+  p,
+  li {
+    line-height: 1.75;
+    margin: 0 0 0.85rem;
+  }
+
+  h2,
+  h3 {
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.25rem;
+  }
+}
+
+// ─── Galleries ───────────────────────────────────────────────────────────────
+
+.cs-gallery {
+  padding-block: 1.5rem;
+
+  &__grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  &__item {
+    border-radius: 0.75rem;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &--pair &__grid {
+    @media (min-width: 560px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .cs-gallery__item {
+      aspect-ratio: 4 / 3;
+    }
+  }
+
+  &--group &__grid {
+    @media (min-width: 560px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cs-gallery__item {
+      aspect-ratio: 1 / 1;
+    }
+  }
+}
+
+// ─── Mid hero (full-bleed image) ─────────────────────────────────────────────
+
+.cs-mid-hero {
+  margin-block: 1.5rem;
+  max-height: clamp(20rem, 50vw, 36rem);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// ─── Quote ───────────────────────────────────────────────────────────────────
+
+.cs-quote {
+  padding-block: 4rem;
+  text-align: center;
+
+  &__block {
+    margin: 0 auto;
+    max-width: 58ch;
+  }
+
+  &__text {
+    margin: 0 0 1rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+    font-family: var(--font-heading);
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  &__cite {
+    font-style: normal;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    opacity: 0.7;
+  }
+}
+
+// ─── More case studies ───────────────────────────────────────────────────────
+
+.cs-more {
+  padding-block: 3.5rem;
+
+  &__heading {
+    margin: 0 0 2rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  }
+}

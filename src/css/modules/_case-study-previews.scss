@@ -78,3 +78,8 @@
     }
   }
 }
+
+// On case study detail pages, keep preview cards uniform size
+.cs-more .case-study-preview-card__media {
+  aspect-ratio: 5 / 4 !important;
+}

@@ -1,13 +1,21 @@
 import nodePath from 'path';
 import fs from 'fs';
 import * as sass from 'sass';
+import markdownIt from 'markdown-it';
 import { RenderPlugin } from '@11ty/eleventy';
 import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
 import htmlmin from 'html-minifier-next';
 import postcss from 'postcss';
 import cssnano from 'cssnano';
 
+const md = markdownIt({ html: true, breaks: true, linkify: true });
+
 export default function(eleventyConfig) {
+
+  eleventyConfig.addFilter('markdownify', function (value) {
+    if (!value) return '';
+    return md.render(String(value));
+  });
 
   const isProduction = process.env.NODE_ENV === 'production';
   const isServe = process.env.ELEVENTY_RUN_MODE === 'serve';
