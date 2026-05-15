@@ -4,11 +4,16 @@
 		<div class="site-head__inner">
 			<a href="/" aria-label="{{ site.name }} - home" class="site-head__brand">
 				{% include "partials/brand.svg" %}
-				<h2 class="site-head__brand-name heading">{{ site.name }}</h2>
+				<h2 class="site-head__brand-name">SPIDER</h2>
 			</a>
 			<button class="nav__hamburger" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
 				<span class="nav__hamburger-icon" aria-hidden="true"></span>
 			</button>
+
+			<a class="nav__email" href="mailto:{{ site.email }}">
+				<img src="/images/emailSymbol.svg" alt="" aria-hidden="true" width="19" height="17">
+				{{ site.email }}
+			</a>
 			<nav class="[ nav ] [ site-head__nav ] [ font-sans ]" aria-label="Primary" id="primary-nav">
 				<ul class="nav__list">
 					{% for item in navigation.items %}

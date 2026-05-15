@@ -42,6 +42,9 @@
                 <p class="work-block__impact">{{ item.data.impact }}</p>
               {% endif %}
               <a href="{{ item.url }}" class="button work-block__cta">View project</a>
+              {% if item.data.url %}
+                <a href="{{ item.data.url }}" class="work-block__external-link" target="_blank" rel="noopener">Visit site</a>
+              {% endif %}
             </div>
           </article>
         {% endfor %}

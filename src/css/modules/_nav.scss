@@ -11,6 +11,22 @@
     max-width: clamp(2.75rem, 8vw, 3.5rem);
     height: clamp(2.75rem, 8vw, 3.5rem);
   }
+
+  &-name {
+    font-size: 1.75rem;
+  }
+}
+
+.nav__email {
+  display: none;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
 }
 
 // ─── Hamburger button (visible on mobile only) ────────────────
@@ -100,6 +116,7 @@
     a {
       display: block;
       padding: 0.875rem 1.5rem;
+      font-size: 0.85rem;
       color: var(--nav-text);
       text-decoration: none;
       border-radius: 0;
@@ -130,8 +147,7 @@
     border: none;
     border-radius: 0;
     color: var(--nav-text);
-    // font: inherit;
-    font-size: 1rem;
+    font-size: 0.85rem;
     cursor: pointer;
     transition: background 160ms, color 160ms;
 
@@ -207,6 +223,12 @@
     display: none;
   }
 
+
+
+  .site-head__nav {
+    margin-left: auto;
+  }
+
   .nav {
     &__list {
       flex-direction: row;
@@ -271,5 +293,31 @@
       visibility: visible;
       transform: translateY(0);
     }
+  }
+}
+
+// ─── Show email at 1050px and above ───────────────────────────
+@media (min-width: 1050px) {
+  .nav__email {
+    display: inline-flex;
+    margin-left: auto;
+    padding-right: 0.9rem;
+    margin-right: 0.45rem;
+    position: relative;
+  }
+
+  .site-head__nav {
+    margin-left: 0;
+  }
+
+  .nav__email::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -0.45rem;
+    width: 1px;
+    height: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-50%);
   }
 }

@@ -4,6 +4,7 @@ metaDesc: 'Spider Design delivers affordable web design, development, and SEO se
 layout: 'layouts/home.html'
 pageScripts:
   - '/src/js/home-carousels.js'
+  - '/src/js/home-impact-counters.js'
 page:
   title: 'SPIDER<br>DESIGN'
   description: 'BUILDING WEBSITES FOR THOSE WHO BUILD EVERYTHING ELSE'

@@ -4,15 +4,25 @@
 
 .cs-hero {
   position: relative;
-  min-height: clamp(18rem, 55vh, 36rem);
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--wrapper-padding);
+  min-height: clamp(18rem, 42vw, 30rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   overflow: hidden;
 
+  @media (min-width: 1200px) {
+    min-height: 28rem;
+  }
+
   &__media {
     position: absolute;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: var(--wrapper-padding);
+    right: var(--wrapper-padding);
 
     img {
       width: 100%;
@@ -161,7 +171,10 @@
 
 .cs-mid-hero {
   margin-block: 1.5rem;
-  max-height: clamp(20rem, 50vw, 36rem);
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--wrapper-padding);
+  height: clamp(20rem, 50vw, 36rem);
   overflow: hidden;
 
   img {

@@ -1,11 +1,13 @@
 backend:
   name: git-gateway
   branch: main
-# TODO: Make dynamic rather than editing all the time for local testing
-local_backend: true # For local testing
+# Uncomment the line below when running locally with `npx decap-server`.
+# Remove or comment out before deploying to production.
+local_backend: true
 media_folder: "src/images/uploads"
 public_folder: "/images/uploads"
 collections:
+
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blogs" # Used in the UI
     singular_label: "Blog" # Used in the UI when referring to a single document
@@ -22,6 +24,7 @@ collections:
       - {label: "Preview Image", name: "previewImage", widget: "image", required: false}
       - {label: "Preview Image Alt", name: "previewImageAlt", widget: "string", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+
   - name: "case-studies" # Used in routes, e.g., /admin/collections/case-studies
     label: "Case Studies" # Used in the UI
     singular_label: "Case Study" # Used in the UI when referring to a single document

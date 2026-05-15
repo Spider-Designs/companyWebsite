@@ -2,26 +2,49 @@
 
 {% block content %}
 
-{# TODO: Update layout and standardise frontmatter #}
 <section class="service-hero">
-  <div class="wrapper">
-    <h1>{{ title }}</h1>
-    {% if serviceTagline %}
-      <p class="service-hero__tagline">{{ serviceTagline }}</p>
-    {% endif %}
+  <div class="wrapper service-hero__layout">
+    <div class="service-hero__content">
+      <p class="service-hero__eyebrow">Service</p>
+      <h1>{{ title }}</h1>
+      {% if serviceTagline %}
+        <p class="service-hero__lead">{{ serviceTagline }}</p>
+      {% endif %}
+      <a href="/contact" class="button service-hero__cta">Start a project</a>
+    </div>
   </div>
 </section>
 
 <section class="service-body">
-  <div class="wrapper service-body__inner">
-    {{ content | safe }}
+  <div class="wrapper service-body__layout">
+    <div class="service-body__content">
+      {{ content | safe }}
+    </div>
+
+    <aside class="service-body__aside" aria-label="Other services">
+      <div class="service-aside-card">
+        <p class="service-aside-card__eyebrow">More Services</p>
+        <ul class="service-aside-card__list">
+          {% for navItem in navigation.items %}
+            {% if navItem.url == '/services/' %}
+              {% for service in navItem.children %}
+                <li>
+                  <a href="{{ service.url }}"{% if service.url == page.url %} aria-current="page"{% endif %}>{{ service.text }}</a>
+                </li>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </aside>
   </div>
 </section>
 
 <section class="service-cta">
   <div class="wrapper">
+    <p class="service-cta__eyebrow">Next Step</p>
     <h2>Ready to get started?</h2>
-    <p>Get in touch and we'll put together an affordable package tailored to your business.</p>
+    <p>Get in touch and we&apos;ll put together an affordable package tailored to your business.</p>
     <a href="/contact" class="button">Talk to us</a>
   </div>
 </section>

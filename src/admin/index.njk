@@ -58,8 +58,7 @@ title: Content Manager
         }).format(date);
       }
 
-      {# TODO: Change depending on collection #}
-      function buildCollectionPreview(collectionLabel) {
+      function buildPostPreview() {
         return createPreviewClass({
           render: function() {
             const props = this.props;
@@ -75,47 +74,241 @@ title: Content Manager
 
             return createPreviewElement(
               'article',
-              { className: 'decap-preview' },
+              { className: 'decap-preview decap-preview--post' },
               createPreviewElement(
                 'section',
-                { className: 'decap-preview__hero' },
-                createPreviewElement('p', { className: 'decap-preview__eyebrow' }, collectionLabel),
-                createPreviewElement('h1', null, title),
-                publishedDate ? createPreviewElement('p', { className: 'decap-preview__meta' }, publishedDate) : null
-              ),
-              previewImage
-                ? createPreviewElement(
-                    'section',
-                    { className: 'decap-preview__media-wrap' },
-                    createPreviewElement('img', {
-                      className: 'decap-preview__media',
-                      src: previewImage,
-                      alt: previewImageAlt,
-                    })
+                { className: 'decap-preview__listing' },
+                createPreviewElement('p', { className: 'decap-preview__listing-label' }, 'Preview card elsewhere on the site'),
+                createPreviewElement(
+                  'article',
+                  { className: 'blog-preview-card decap-preview-card-sample' },
+                  createPreviewElement(
+                    'div',
+                    { className: 'blog-preview-card__link' },
+                    previewImage
+                      ? createPreviewElement(
+                          'div',
+                          { className: 'blog-preview-card__media' },
+                          createPreviewElement('img', {
+                            src: previewImage,
+                            alt: previewImageAlt,
+                          })
+                        )
+                      : null,
+                    createPreviewElement(
+                      'div',
+                      { className: 'blog-preview-card__body' },
+                      createPreviewElement(
+                        'div',
+                        { className: 'blog-preview-card__content' },
+                        createPreviewElement('h3', null, previewTitle),
+                        previewSummary
+                          ? createPreviewElement('p', null, previewSummary)
+                          : createPreviewElement('p', { className: 'decap-preview__muted' }, 'No preview summary added yet.')
+                      ),
+                      createPreviewElement(
+                        'div',
+                        { className: 'blog-preview-card__meta-row' },
+                        publishedDate ? createPreviewElement('p', { className: 'blog-preview-card__meta' }, publishedDate) : null
+                      )
+                    )
                   )
-                : null,
-              createPreviewElement(
-                'section',
-                { className: 'decap-preview__card' },
-                createPreviewElement('p', { className: 'decap-preview__card-label' }, 'Home page card preview'),
-                createPreviewElement('h2', null, previewTitle),
-                previewSummary
-                  ? createPreviewElement('p', null, previewSummary)
-                  : createPreviewElement('p', { className: 'decap-preview__muted' }, 'No preview summary added yet.')
+                )
               ),
               createPreviewElement(
                 'section',
-                { className: 'decap-preview__body' },
-                body
+                { className: 'post-hero decap-preview__hero-shell' },
+                createPreviewElement(
+                  'div',
+                  { className: 'wrapper' },
+                  createPreviewElement('h1', null, title),
+                  publishedDate ? createPreviewElement('p', { className: 'post-hero__meta' }, 'Published: ' + publishedDate) : null
+                )
+              ),
+              createPreviewElement(
+                'section',
+                { className: 'post-content decap-preview__body-shell' },
+                createPreviewElement(
+                  'div',
+                  { className: 'wrapper post-content__inner' },
+                  body
+                )
               )
             );
           }
         });
       }
 
+      function buildCaseStudyPreview() {
+        return createPreviewClass({
+          render: function() {
+            const props = this.props;
+            const entry = props.entry;
+            const data = entry.get('data');
+            const title = data.get('title') || 'Untitled';
+            const client = data.get('client') || title;
+            const location = data.get('location') || 'Location';
+            const impact = data.get('impact') || '';
+            const previewImage = resolveAsset(props.getAsset, data.get('previewImage'));
+            const previewImageAlt = data.get('previewImageAlt') || client;
+            const heroImage = resolveAsset(props.getAsset, data.get('heroImage'));
+            const heroImageAlt = data.get('heroImageAlt') || client;
+            const midHeroImage = resolveAsset(props.getAsset, data.get('midHeroImage'));
+            const midHeroImageAlt = data.get('midHeroImageAlt') || '';
+            const quote = data.get('quote') || '';
+            const quoteAuthor = data.get('quoteAuthor') || '';
+            const publishedDate = formatDate(data.get('date'));
+            const galleryImages = data.get('galleryImages');
+            const quoteImages = data.get('quoteImages');
+            const brief = props.widgetFor('brief');
+            const approach = props.widgetFor('approach');
+            const results = props.widgetFor('results');
+
+            function renderImageList(items, className) {
+              if (!items || !items.size) {
+                return null;
+              }
+
+              return createPreviewElement(
+                'section',
+                { className: className },
+                createPreviewElement(
+                  'div',
+                  { className: 'wrapper' },
+                  createPreviewElement(
+                    'div',
+                    { className: 'cs-gallery__grid' },
+                    items.map(function (item, index) {
+                      const image = resolveAsset(props.getAsset, item.get('image'));
+                      const alt = item.get('alt') || '';
+
+                      if (!image) {
+                        return null;
+                      }
+
+                      return createPreviewElement(
+                        'div',
+                        { className: 'cs-gallery__item', key: className + '-' + index },
+                        createPreviewElement('img', {
+                          src: image,
+                          alt: alt,
+                        })
+                      );
+                    }).toArray()
+                  )
+                )
+              );
+            }
+
+            function renderSection(label, body) {
+              if (!body) {
+                return null;
+              }
+
+              return createPreviewElement(
+                'section',
+                { className: 'cs-section' },
+                createPreviewElement(
+                  'div',
+                  { className: 'wrapper cs-section__inner' },
+                  createPreviewElement('h2', { className: 'cs-section__label' }, label),
+                  createPreviewElement('div', { className: 'cs-section__body prose' }, body)
+                )
+              );
+            }
+
+            return createPreviewElement(
+              'article',
+              { className: 'decap-preview decap-preview--case-study' },
+              createPreviewElement(
+                'section',
+                { className: 'decap-preview__listing' },
+                createPreviewElement('p', { className: 'decap-preview__listing-label' }, 'Preview card elsewhere on the site'),
+                createPreviewElement(
+                  'article',
+                  { className: 'case-study-preview-card decap-preview-card-sample' },
+                  createPreviewElement(
+                    'div',
+                    { className: 'case-study-preview-card__link' },
+                    previewImage
+                      ? createPreviewElement(
+                          'div',
+                          { className: 'case-study-preview-card__media' },
+                          createPreviewElement('img', {
+                            src: previewImage,
+                            alt: previewImageAlt,
+                          })
+                        )
+                      : null,
+                    createPreviewElement(
+                      'div',
+                      { className: 'case-study-preview-card__body' },
+                      createPreviewElement('p', { className: 'case-study-preview-card__meta' }, client),
+                      createPreviewElement('p', { className: 'case-study-preview-card__meta-secondary' }, location + (impact ? ' — ' + impact : ''))
+                    )
+                  )
+                )
+              ),
+              createPreviewElement(
+                'section',
+                { className: 'cs-hero' },
+                heroImage
+                  ? createPreviewElement(
+                      'div',
+                      { className: 'cs-hero__media' },
+                      createPreviewElement('img', {
+                        src: heroImage,
+                        alt: heroImageAlt,
+                      })
+                    )
+                  : null,
+                createPreviewElement(
+                  'div',
+                  { className: 'wrapper cs-hero__content' },
+                  createPreviewElement('p', { className: 'cs-hero__eyebrow' }, location + (publishedDate ? ' - ' + publishedDate : '')),
+                  createPreviewElement('h1', null, client),
+                  impact ? createPreviewElement('p', { className: 'cs-hero__impact' }, impact) : null
+                )
+              ),
+              renderSection('Brief', brief),
+              renderImageList(galleryImages, 'cs-gallery cs-gallery--pair'),
+              renderSection('Approach', approach),
+              midHeroImage
+                ? createPreviewElement(
+                    'section',
+                    { className: 'cs-mid-hero' },
+                    createPreviewElement('img', {
+                      src: midHeroImage,
+                      alt: midHeroImageAlt,
+                    })
+                  )
+                : null,
+              quote
+                ? createPreviewElement(
+                    'section',
+                    { className: 'cs-quote' },
+                    createPreviewElement(
+                      'div',
+                      { className: 'wrapper' },
+                      createPreviewElement(
+                        'blockquote',
+                        { className: 'cs-quote__block' },
+                        createPreviewElement('p', { className: 'cs-quote__text' }, '“' + quote + '”'),
+                        quoteAuthor ? createPreviewElement('cite', { className: 'cs-quote__cite' }, '— ' + quoteAuthor) : null
+                      )
+                    )
+                  )
+                : null,
+              renderImageList(quoteImages, 'cs-gallery cs-gallery--group'),
+              renderSection('Results', results)
+            );
+          }
+        });
+      }
+
       window.CMS.registerPreviewStyle('/css/admin-preview.css');
-      window.CMS.registerPreviewTemplate('blog', buildCollectionPreview('Blog post'));
-      window.CMS.registerPreviewTemplate('case-studies', buildCollectionPreview('Case study'));
+      window.CMS.registerPreviewTemplate('blog', buildPostPreview());
+      window.CMS.registerPreviewTemplate('case-studies', buildCaseStudyPreview());
     </script>
   </body>
 </html>

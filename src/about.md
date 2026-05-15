@@ -32,12 +32,6 @@ valuesSection:
       body: 'Professional web design and SEO should not be out of reach for smaller businesses. We keep our pricing accessible and offer flexible ways to work together, including monthly retainer options.'
     - title: 'Results'
       body: 'Good design should do more than look polished. It should help your business communicate clearly, attract the right audience, and turn interest into action.'
-    - title: 'Stuff4'
-      body: ''
-    - title: 'Stuff5'
-      body: ''
-    - title: 'Stuff6'
-      body: ''
 ourExpertise:
   title: Our Expertise
 closingCta:

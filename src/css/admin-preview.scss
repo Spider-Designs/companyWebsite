@@ -1,4 +1,7 @@
 @use 'theme/theme';
+@use 'modules/blog-previews';
+@use 'layout/page-case-study';
+@use 'modules/case-study-previews';
 
 html,
 body {
@@ -13,23 +16,63 @@ body {
 	padding: 1.5rem;
 }
 
+.wrapper {
+	max-width: 1200px;
+	margin-inline: auto;
+	padding-inline: 1rem;
+}
+
 .decap-preview {
-	max-width: 72rem;
 	margin: 0 auto;
-	outline: 8px solid #00e5ff;
 	outline-offset: 10px;
+}
+
+.decap-preview__listing {
+	padding: 1.25rem;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 1.25rem;
+	background: rgba(255, 255, 255, 0.02);
+}
+
+.decap-preview__listing-label {
+	margin: 0 0 1rem;
+	font-family: Arial, sans-serif;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.decap-preview-card-sample {
+	max-width: 28rem;
+}
+
+.decap-preview__hero-shell,
+.decap-preview__body-shell {
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 1.25rem;
+	background: linear-gradient(180deg, rgba(75, 163, 141, 0.12), rgba(255, 255, 255, 0.03));
+	padding: 1.5rem;
+}
+
+.decap-preview > * + * {
+	margin-top: 1.5rem;
 }
 
 .decap-preview__hero,
 .decap-preview__card,
-.decap-preview__body {
+.decap-preview__body,
+.decap-preview__section,
+.decap-preview__quote {
 	border: 1px solid rgba(255, 255, 255, 0.12);
 	border-radius: 1.25rem;
 	background: linear-gradient(180deg, rgba(75, 163, 141, 0.12), rgba(255, 255, 255, 0.03));
 }
 
 .decap-preview__hero,
-.decap-preview__body {
+.decap-preview__body,
+.decap-preview__section,
+.decap-preview__quote {
 	padding: 1.5rem;
 }
 
@@ -49,6 +92,11 @@ body {
 .decap-preview__card h2 {
 	margin: 0.75rem 0 0;
 	line-height: 1.1;
+}
+
+.decap-preview__section h2,
+.decap-preview__quote cite {
+	margin: 0;
 }
 
 .decap-preview__hero h1 {
@@ -85,6 +133,11 @@ body {
 	line-height: 1.7;
 }
 
+.decap-preview__body-inner {
+	max-width: 70ch;
+	margin: 0 auto;
+}
+
 .decap-preview__body h1,
 .decap-preview__body h2,
 .decap-preview__body h3,
@@ -103,4 +156,37 @@ body {
 
 .decap-preview__body a {
 	color: var(--color-text);
+}
+
+.post-hero h1 {
+	margin: 0;
+	font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.post-hero__meta {
+	margin-top: 0.75rem;
+	font-family: Arial, sans-serif;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.post-content__inner {
+	max-width: 72ch;
+}
+
+.post-content h2 {
+	margin-top: 2.25rem;
+	margin-bottom: 0.75rem;
+}
+
+.post-content p,
+.post-content li {
+	line-height: 1.7;
+}
+
+.post-content ul,
+.post-content ol {
+	padding-left: 1.25rem;
 }

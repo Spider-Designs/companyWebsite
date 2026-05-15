@@ -109,21 +109,25 @@
     }
 
     &__lead-ticker {
+      overflow: visible;
+      height: auto;
       white-space: normal;
       mask-image: none;
       padding-right: 0;
       margin-right: 0;
+      margin-top: 1rem;
+      line-height: 1.5;
     }
 
     &__lead-track {
+      display: block;
       animation: none;
       white-space: normal;
     }
 
-    &__lead-copy + &__lead-copy {
+    &__lead-copy[aria-hidden="true"] {
       display: none;
     }
-
 
   }
 }
