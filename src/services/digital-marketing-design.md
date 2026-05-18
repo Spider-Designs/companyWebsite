@@ -4,31 +4,31 @@ metaDesc: 'Spider Design creates professional graphics, social media assets, and
 layout: 'layouts/service.html'
 permalink: '/services/digital-marketing-design/index.html'
 serviceTagline: 'Eye-catching visuals that make your brand stand out online.'
+intro: "Strong visuals are at the heart of effective digital marketing. Whether you're running social media campaigns, email newsletters, or paid ads, the design of your creative assets directly affects how people perceive your brand and whether they engage. <BR> <BR> Spider Design creates professional, on-brand digital marketing graphics that are built to perform."
+process:
+  eyebrow: 'Our Process'
+  title: 'A clear process from brief to published'
+  steps:
+    - title: 'Brand Review'
+      body: 'We review your brand identity, campaign goals, and target audience before any design begins.'
+    - title: 'Concept'
+      body: 'We develop design directions that are on-brand, visually clear, and focused on driving action.'
+    - title: 'Design'
+      body: 'We create professional graphics sized and formatted correctly for each platform and placement.'
+    - title: 'Delivery'
+      body: 'You receive all files in the formats you need — ready to upload or publish immediately.'
+outcomes:
+  eyebrow: 'Outcomes'
+  title: 'What this delivers for you'
+  brief: 'Professional, on-brand visuals help your business stand out, build a consistent presence, and drive real engagement across every platform you use.'
+  listHeading: 'What we deliver:'
+  list:
+    - Branded social media posts, stories, banners, and cover images
+    - Display ads and social ad creatives sized correctly for each platform
+    - Email marketing headers and layout graphics
+    - Promotional materials, digital flyers, and campaign visuals
+    - All files delivered in the formats you need, ready to publish
 ---
-
-Strong visuals are at the heart of effective digital marketing. Whether you're running social media campaigns, email newsletters, or paid ads, the design of your creative assets directly affects how people perceive your brand and whether they engage.
-
-Spider Design creates professional, on-brand digital marketing graphics that are built to perform.
-
-## What we design
-
-### Social media graphics
-Branded posts, stories, banners, and cover images for platforms including Instagram, Facebook, LinkedIn, and X (Twitter). Designed to stop the scroll and reflect your brand consistently.
-
-### Ad creatives
-Display ads, social ad sets, and promotional banners optimised for digital placements — sized correctly, visually clear, and focused on driving action.
-
-### Email marketing visuals
-Headers, banners, and layout graphics for email campaigns that look polished across all email clients and devices.
-
-### Promotional materials
-Digital flyers, event graphics, launch assets, and seasonal campaign visuals — whatever you need to support your marketing activity.
-
-## How we work
-
-We start by understanding your brand, your campaign goals, and your audience. From there we create designs that are consistent with your existing brand identity (or help establish one, if needed).
-
-You'll receive files in the formats you need — ready to upload or publish immediately.
 
 ## Part of a broader service
 

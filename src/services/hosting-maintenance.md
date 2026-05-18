@@ -1,34 +1,37 @@
 ---
 title: 'Hosting & Maintenance'
-metaDesc: 'Spider Design provides reliable website hosting and ongoing maintenance — keeping your site fast, secure, and up to date without the hassle.'
+metaDesc: 'Spider Design provides reliable website hosting and ongoing maintenance. Keeping your site fast, secure, and up to date without the hassle.'
 layout: 'layouts/service.html'
 permalink: '/services/hosting-maintenance/index.html'
 serviceTagline: 'Reliable hosting and ongoing care so your website stays fast, secure, and up to date.'
+intro: "A website isn't a one-time job. It needs reliable hosting, regular updates, security monitoring, and occasional fixes to keep performing at its best. Most business owners don't have time to manage that themselves — and that's exactly where we come in. <BR> <BR> Spider Design's hosting and maintenance service takes the technical burden off your plate entirely."
+process:
+  eyebrow: 'Our Process'
+  title: 'A clear process from setup to ongoing care'
+  steps:
+    - title: 'Onboarding'
+      body: 'We learn about your website, hosting setup, and what level of ongoing support you need.'
+    - title: 'Migration or Setup'
+      body: 'We migrate your existing site or set up a new one on our managed hosting infrastructure.'
+    - title: 'Configure & Secure'
+      body: 'We handle configuration, automated backups, and security monitoring from day one.'
+    - title: 'Maintain & Update'
+      body: 'We keep your software and dependencies up to date and handle small content changes on your behalf.'
+    - title: 'Review & Optimise'
+      body: 'We periodically review performance and make adjustments to keep your site running smoothly.'
+outcomes:
+  eyebrow: 'Outcomes'
+  title: 'What this delivers for you'
+  brief: 'With Spider Design managing your hosting and maintenance, your website stays fast, secure, and up to date — without you having to think about it.'
+  listHeading: 'Every maintenance package includes:'
+  list:
+    - Reliable managed hosting with strong uptime
+    - Regular software, plugin, and dependency updates
+    - Security monitoring and threat response
+    - Automated backups with fast restore capability
+    - Periodic performance checks and optimisation
+    - Small content updates handled within one business day
 ---
-
-A website isn't a one-time job. It needs reliable hosting, regular updates, security monitoring, and occasional fixes to keep performing at its best. Most business owners don't have time to manage that themselves — and that's exactly where we come in.
-
-Spider Design's hosting and maintenance service takes the technical burden off your plate entirely.
-
-## What's included
-
-### Managed hosting
-Your website is hosted on reliable, performant infrastructure with strong uptime. We handle the server-side setup and configuration so you don't have to think about it.
-
-### Software updates
-We keep your website's underlying software, plugins, and dependencies up to date — reducing security vulnerabilities and ensuring compatibility.
-
-### Security monitoring
-We monitor your site for common threats, malware, and suspicious activity, and take action if something needs attention.
-
-### Regular backups
-Your website is backed up regularly so that in the unlikely event something goes wrong, we can restore it quickly with minimal disruption to your business.
-
-### Performance checks
-We periodically review your site's load speed and performance, making adjustments where needed to keep things running smoothly.
-
-### Small content updates
-Need to change a phone number, update an image, or tweak some copy? As part of your maintenance package, we handle small content changes on your behalf — typically within one business day.
 
 ## Maintenance packages
 

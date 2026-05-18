@@ -4,34 +4,34 @@ metaDesc: 'Spider Design improves your search engine rankings so more customers 
 layout: 'layouts/service.html'
 permalink: '/services/seo/index.html'
 serviceTagline: 'Get found by more customers with affordable, effective SEO.'
+intro: "Search engine optimisation (SEO) is how you get your website in front of people who are actively looking for what you offer. Without it, even the best-designed website can go unnoticed. <BR> <BR> At Spider Design, we take a practical, transparent approach to SEO. SEO is a long-term investment, and we're honest about that. We focus on sustainable techniques that build genuine authority not quick tricks that can get your site penalised."
+process:
+  eyebrow: 'Our Process'
+  title: 'A clear process from audit to results'
+  steps:
+    - title: 'Audit'
+      body: 'We carry out a thorough audit of your site and keyword landscape to understand exactly where you stand.'
+    - title: 'Strategy'
+      body: 'We build a prioritised action plan targeting the search terms your customers actually use.'
+    - title: 'On-Page SEO'
+      body: 'We optimise your page titles, headings, content, and internal linking so search engines understand your site.'
+    - title: 'Technical SEO'
+      body: 'We identify and fix technical issues — slow load times, crawl errors, missing meta tags, poor mobile performance.'
+    - title: 'Report & Improve'
+      body: 'We provide clear, regular reports so you can see rankings and traffic improving over time.'
+outcomes:
+  eyebrow: 'Outcomes'
+  title: 'What this delivers for you'
+  brief: 'SEO brings more of the right visitors to your website without paying for ads. We focus on sustainable improvements that build genuine authority and deliver measurable results.'
+  listHeading: 'Every SEO package includes:'
+  list:
+    - Thorough site and keyword audit to identify gaps and opportunities
+    - Prioritised action plan targeting the search terms your customers use
+    - On-page optimisation of titles, headings, content, and internal links
+    - Technical SEO fixes for load speed, crawl errors, and mobile performance
+    - Local SEO improvements to help you rank in your area
+    - Clear, regular reports showing ranking and traffic progress
 ---
-
-Search engine optimisation (SEO) is how you get your website in front of people who are actively looking for what you offer. Without it, even the best-designed website can go unnoticed.
-
-At Spider Design, we take a practical, transparent approach to SEO — focused on results that matter to your business.
-
-## What we cover
-
-### On-page SEO
-We optimise your page titles, headings, content, and internal linking so search engines understand what each page is about and rank it accordingly.
-
-### Technical SEO
-We identify and fix technical issues that hold your site back — slow load times, crawl errors, missing meta tags, poor mobile performance, and more.
-
-### Content optimisation
-We review and improve your existing content to better target the search terms your customers actually use, without keyword stuffing or artificial writing.
-
-### Local SEO
-If your business serves a local area, we help you rank for relevant local searches and optimise your presence in Google Maps and local results.
-
-### Reporting
-We provide clear reports so you can see how your rankings and organic traffic are improving over time.
-
-## Our approach
-
-SEO is a long-term investment, and we're honest about that. We focus on sustainable, white-hat techniques that build genuine authority — not quick tricks that can get your site penalised.
-
-Our process begins with a thorough audit of your current site and keyword landscape, followed by a prioritised action plan we work through with you.
 
 ## Affordable SEO packages
 

@@ -67,3 +67,18 @@ collections:
           - {label: "Alt Text", name: "alt", widget: "string", required: false}
       - {label: "Results", name: "results", widget: "markdown", required: false, hint: "Outcomes and impact of the project"}
       - {label: "Body", name: "body", widget: "markdown", required: false}
+
+  - name: "reviews"
+    label: "Reviews"
+    singular_label: "Review"
+    folder: "src/reviews"
+    create: true
+    slug: ""
+    fields:
+      - {label: "Tags", name: "tags", widget: "hidden", default: ["reviews"]}
+      - {label: "Permalink", name: "permalink", widget: "hidden", default: false}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Company", name: "company", widget: "string", required: false}
+      - {label: "Quote", name: "quote", widget: "text"}
+      - {label: "Date", name: "date", widget: "datetime", time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", required: false}
+      - {label: "URL", name: "url", widget: "string", required: false, hint: "Optional link to the original review"}

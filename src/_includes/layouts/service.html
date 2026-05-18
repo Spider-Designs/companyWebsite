@@ -15,28 +15,99 @@
   </div>
 </section>
 
+<section class="service-intro">
+  <div class="wrapper">
+    <div class="service-intro-text">
+      {{ intro | safe }}
+    </div>
+  </div>
+</section>
+
+<section class="service-process" aria-labelledby="service-process-title">
+  <div class="wrapper">
+    <p class="service-process__eyebrow">{{ process.eyebrow }}</p>
+    <h2 id="service-process-title">{{ process.title }}</h2>
+
+    {% if process.steps and process.steps | length %}
+      <ol class="service-process__steps" role="list">
+        {% for step in process.steps %}
+          <li class="service-process__step">
+            <p class="service-process__number">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</p>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.body }}</p>
+          </li>
+        {% endfor %}
+      </ol>
+    {% endif %}
+  </div>
+</section>
+
+<section class="service-outcomes" aria-labelledby="service-outcomes-title">
+  <div class="wrapper">
+    <p class="service-outcomes__eyebrow">{{ outcomes.eyebrow }}</p>
+    <h2 id="service-outcomes-title">{{ outcomes.title }}</h2>
+
+    <div class="service-outcomes__panel">
+      {% if outcomes.brief %}
+        <div class="service-outcomes__brief">
+          {{ outcomes.brief | safe }}
+        </div>
+      {% endif %}
+
+      {% if outcomes.list and outcomes.list | length %}
+        {% if outcomes.listHeading %}
+          <p class="service-outcomes__list-heading">{{ outcomes.listHeading }}</p>
+        {% endif %}
+
+        <ul class="service-outcomes__list" role="list">
+          {% for item in outcomes.list %}
+            <li>
+              <span class="service-outcomes__tick" aria-hidden="true">✓</span>
+              <span>{{ item }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% if options %}
+<section class="service-options" aria-labelledby="service-options-title">
+  <div class="wrapper">
+    <p class="service-options__eyebrow">{{ options.eyebrow or 'Affordable options' }}</p>
+    <h2 id="service-options-title">{{ options.title or 'Choose a model that fits your budget' }}</h2>
+
+    {% if options.brief %}
+      <p class="service-options__brief">{{ options.brief }}</p>
+    {% endif %}
+
+    {% if options.list and options.list | length %}
+      <div class="service-options__list">
+        {% for option in options.list %}
+          <div class="service-options__card">
+            <h3>{{ option.title }}</h3>
+            <p>{{ option.body }}</p>
+            {% if option.benefits and option.benefits | length %}
+              <ul class="service-options__benefits" role="list">
+                {% for benefit in option.benefits %}
+                  <li class="service-options__benefit">{{ benefit }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
 <section class="service-body">
   <div class="wrapper service-body__layout">
     <div class="service-body__content">
       {{ content | safe }}
     </div>
-
-    <aside class="service-body__aside" aria-label="Other services">
-      <div class="service-aside-card">
-        <p class="service-aside-card__eyebrow">More Services</p>
-        <ul class="service-aside-card__list">
-          {% for navItem in navigation.items %}
-            {% if navItem.url == '/services/' %}
-              {% for service in navItem.children %}
-                <li>
-                  <a href="{{ service.url }}"{% if service.url == page.url %} aria-current="page"{% endif %}>{{ service.text }}</a>
-                </li>
-              {% endfor %}
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-    </aside>
   </div>
 </section>
 
@@ -44,7 +115,7 @@
   <div class="wrapper">
     <p class="service-cta__eyebrow">Next Step</p>
     <h2>Ready to get started?</h2>
-    <p>Get in touch and we&apos;ll put together an affordable package tailored to your business.</p>
+    <p>Get in touch and we'll put together an affordable package tailored to your business.</p>
     <a href="/contact" class="button">Talk to us</a>
   </div>
 </section>

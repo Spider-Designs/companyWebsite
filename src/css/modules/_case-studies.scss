@@ -97,6 +97,14 @@
     margin-top: 2rem;
   }
 
+  .cs-fallback {
+    max-height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   @media (max-width: 960px) {
     .wrapper {
       min-height: 22rem;

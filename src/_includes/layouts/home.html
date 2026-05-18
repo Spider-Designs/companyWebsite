@@ -41,6 +41,7 @@
       <h3 class="impact__headline">Expert Web Design, Development and SEO Support</h3>
     </div>
 
+{# TODO: Change numbers to be more in line with actual data #}
     <div class="impact__grid" aria-label="Spider Design impact highlights">
       <article class="impact-card">
         <p class="impact-card__value">40+</p>
@@ -94,7 +95,7 @@
       </div>
     </div>
 
-    <div class="service-retainer">
+    <div class="service-retainer centre">
       <h3>Monthly Retainer — No Upfront Cost</h3>
       <p>Get a professionally designed website with no upfront payment. Our monthly retainer packages bundle web design, hosting, maintenance, and ongoing support into one affordable monthly fee — so you can get online without the big initial outlay.</p>
       <a href="/contact" class="button">Ask about retainer pricing</a>
@@ -133,16 +134,25 @@
     </p>
   </div>
 
-  <div class="wrapper">
-    <div class="case-study-preview-grid" aria-label="Recent case studies">
-      {% for item in collections["case-study"] | reverse | head(9) %}
-        {% include "partials/case-study-preview-card.html" %}
-      {% endfor %}
+  {% if collections["case-study"] and collections["case-study"] | length %}
+    <div class="wrapper">
+      <div class="case-study-preview-grid" aria-label="Recent case studies">
+        {% for item in collections["case-study"] | reverse | head(9) %}
+          {% include "partials/case-study-preview-card.html" %}
+        {% endfor %}
+      </div>
     </div>
-  </div>
-  <div class="home-case-studies__footer">
-    <a href="/work" class="button button--circle">View all our work →</a>
-  </div>
+    <div class="home-case-studies__footer">
+      <a href="/work" class="button button--circle">View all our work →</a>
+    </div>
+  {% else %}
+    <div class="cs-fallback">
+      <p class="cs-section__body">We're busy building websites that get results for our clients. Check back soon to see some of our work.</p>
+      <div class="home-case-studies__footer">
+        <a href="/contact" class="button button--circle">Start your project →</a>
+      </div>
+    </div>
+  {% endif %}
 </section> 
 
 <section class="company-logos home-section">
@@ -176,6 +186,7 @@
   </div>
 </section>
 
+{% if collections.reviews and collections.reviews | length %}
 <section class="home-reviews home-section">
   <div class="wrapper">
     <div class="section-heading">
@@ -185,7 +196,7 @@
     <div class="embla embla--reviews" data-embla="reviews" aria-label="Example client reviews">
       <div class="embla__viewport">
         <div class="embla__container">
-          {% for review in reviews.items %}
+          {% for review in collections.reviews | reverse %}
             <div class="embla__slide embla__slide--review">
               {% include "partials/review-card.html" %}
             </div>
@@ -195,6 +206,7 @@
     </div>
   </div>
 </section>
+{% endif %}
 
 {# CTA #}
 <section class="company-cta home-section">
