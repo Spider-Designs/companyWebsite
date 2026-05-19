@@ -4,7 +4,7 @@ metaDesc: 'Spider Design audits your existing website for performance, SEO, acce
 layout: 'layouts/service.html'
 permalink: '/services/website-review/index.html'
 serviceTagline: 'Find out what your website is doing well and where it could be working harder for you.'
-intro: "If you already have a website but you're not seeing the results you expected, a professional website review can reveal exactly what's holding it back and what to do about it.<BR> <BR> Our website review service gives you an honest, expert assessment of your site with a prioritised action plan, no jargon, no unnecessary upsell."
+intro: "If you already have a website but you're not seeing the results you expected, a professional website review can reveal exactly what's holding it back and what to do about it.<BR> <BR> Our website review service gives you an honest, expert assessment of your site with a prioritised action plan."
 process:
   eyebrow: 'Our Process'
   title: 'A clear process from brief to actionable report'
@@ -30,7 +30,7 @@ outcomes:
     - Accessibility assessment against WCAG guidelines
     - UX review identifying friction points and conversion opportunities
     - Mobile responsiveness testing across a range of device sizes
-    - Security check for common vulnerabilities
+    - Security checks for common vulnerabilities
     - A clear written report with prioritised, actionable recommendations
 ---
 

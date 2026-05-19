@@ -1,21 +1,61 @@
 {% extends "layouts/base.html" %}
 
 {% block content %}
+<article class="post">
+  <header class="post-hero">
+    <div class="wrapper post-hero__inner">
+      {% if date %}
+        <p class="post-hero__meta">
+          <span>Published</span>
+          <time datetime="{{ date }}">{{ date | readableDate }}</time>
+        </p>
+      {% endif %}
 
-{# TODO: Update template to look better #}
-<section class="post-hero">
-  <div class="wrapper">
-    <h1>{{ title }}</h1>
-    {% if date %}
-      <p class="post-hero__meta">Published: {{ date }}</p>
-    {% endif %}
-  </div>
-</section>
+      <h1>{{ title }}</h1>
 
-<section class="post-content">
-  <div class="wrapper post-content__inner">
-    {{ content | safe }}
-  </div>
-</section>
+      {% if previewSummary %}
+        <p class="post-hero__summary">{{ previewSummary }}</p>
+      {% endif %}
+    </div>
+  </header>
+
+  {% if previewImage %}
+    <section class="post-featured">
+      <div class="wrapper post-featured__inner">
+        <img
+          src="{{ previewImage }}"
+          alt="{{ previewImageAlt | default(title) }}"
+          loading="eager"
+          decoding="async"
+          sizes="(min-width: 75rem) 900px, (min-width: 48rem) 85vw, 100vw"
+        />
+      </div>
+    </section>
+  {% endif %}
+
+  <section class="post-content">
+    <div class="wrapper post-content__inner prose">
+      {{ content | safe }}
+    </div>
+  </section>
+
+  <footer class="post-footer">
+    <div class="wrapper post-footer__inner">
+      {% if tags and tags.length %}
+        <ul class="post-footer__tags" aria-label="Post tags">
+          {% for tag in tags %}
+            {% if tag != "posts" %}
+              <li>{{ tag }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {# <p class="post-footer__back">
+        <a href="/about/#journal">Back to journal</a>
+      </p> #}
+    </div>
+  </footer>
+</article>
 
 {% endblock %}
