@@ -1,15 +1,20 @@
 ---
-title: 'About Spider Design Ltd'
+title: 'SpiderDesign | A team of digital experts based in Scotland'
 description: 'Learn more about Spider Design, our approach, and the team behind our affordable web design, SEO, and digital support services.'
 layout: 'layouts/about.html'
 permalink: '/about-us/index.html'
 aboutHero:
   title: Why Spider.
+  subtitle: 'Scottish roots, global reach. We know you want to attract people in your area.'
   facts: 
     - heading: 10+
       subheading: years of combined experience.
     - heading: 2
       subheading: Team Size
+    - heading: 20+
+      subheading: businesses given a platform
+    - heading: UK
+      subheading: client coverage
   team:
     title: Our Team
     members:

@@ -4,9 +4,12 @@
 
 <section class="about-hero impact">
   <div class="wrapper">
-    {% if aboutHero.title %}
-      <h1 class="about-hero__title heading">{{ aboutHero.title }}</h1>
-    {% endif %}
+    <div>
+      {% if aboutHero.title %}
+        <h1 class="about-hero__title heading">{{ aboutHero.title }}</h1>
+      {% endif %}
+      <p class="about-hero__subtitle">{{ aboutHero.subtitle }}</p>
+    </div>
 
     {% if aboutHero.facts %}
       <div class="impact__grid">
@@ -48,7 +51,7 @@
 </section>
 
 <section class="values">
-  <div class="wrapper">
+  <div class="wrapper values-content">
     {% if valuesSection.title %}
       <h2 class="heading">{{ valuesSection.title }}</h2>
     {% endif %}
