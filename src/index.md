@@ -6,6 +6,6 @@ pageScripts:
   - '/src/js/home-carousels.js'
   - '/src/js/home-impact-counters.js'
 page:
-  title: 'SPIDER<br>DESIGN'
+  title: 'Helping Businesses grow with better Websites, SEO, and Branding'
   description: 'BUILDING WEBSITES FOR THOSE WHO BUILD EVERYTHING ELSE'
 ---

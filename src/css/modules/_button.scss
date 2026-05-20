@@ -20,7 +20,7 @@
   }
 
   &--circle {
-    width: clamp(6.5rem, 30vw, 7.5rem);
+    width: clamp(6.5rem, 30vw, 8rem);
     aspect-ratio: 1;
     padding: 1rem;
     border-radius: 50%;
@@ -28,7 +28,7 @@
     text-transform: uppercase;
 
     @media (max-width: 550px) {
-      width: 100%;
+      width: 80%;
       aspect-ratio: auto;
       border-radius: 0.75rem;
     }

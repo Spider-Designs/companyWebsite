@@ -2,20 +2,18 @@
 
 {% block content %}
 
-<section class="home-hero home-section">
-
-{# For a potential hero image #}
-  {% if page.heroImage %}
-  <div class="home-hero__media">
-    <img
-      src="{{ page.heroImage }}"
-      alt="{{ page.heroAlt | default(site.name + ' — hero image') }}"
-      loading="lazy"
-      decoding="async"
-      class="home-hero__img" />
+<div class="wrapper home-eyebrow home-section" aria-label="Company status and name">
+  <div class="home-eyebrow__row">
+    <span class="home-eyebrow__dot" aria-hidden="true"></span>
+    <span class="home-eyebrow__text">Active</span>
+    <span class="home-eyebrow__sep" aria-hidden="true">&middot;</span>
+    <span class="home-eyebrow__text">Spider Design</span>
+    <span class="home-eyebrow__sep" aria-hidden="true">&middot;</span>
+    <span class="home-eyebrow__text">Scotland</span>
   </div>
-  {% endif %}
+</div>
 
+<section class="home-hero home-section">
   <div class="home-hero__inner wrapper">
     <div class="home-hero__content">
       <h1 class="home-hero__title heading" aria-label="{{ page.title | striptags }}">{{ page.title | safe }}</h1>
@@ -64,7 +62,7 @@
 </section>
 
 {# Section for services #}
-<section class="home-services home-section">
+{# <section class="home-services home-section">
   <div class="wrapper">
     <h2 class="heading">Web Design &amp; SEO Services</h2>
     <p class="home-services__intro">Everything your business needs to get online, grow, and stay ahead.</p>
@@ -101,10 +99,10 @@
       <a href="/contact" class="button">Ask about retainer pricing</a>
     </div>
   </div>
-</section>
+</section> #}
 
 <section class="home-case-studies home-section">
-  <div class="wrapper">
+  <div class="wrapper home-case-studies__hero">
     <img
       src="{{ site.logo }}"
       alt="{{ site.name }} Logo"
@@ -113,13 +111,12 @@
       decoding="async"
       class="home-case-studies__logo" 
     />
-    <div class="hero__top">
-      <p class="hero__intro">
-        We understand that you make<br />
-        the world work, we give<br />
-        you the platform to do it.
-      </p>
-    </div>
+
+    <p class="hero__intro">
+      We understand that you make<br />
+      the world work, we give<br />
+      you the platform to do it.
+    </p>
 
     <h1 class="hero__headline">
       <span class="indent-0">We build</span>

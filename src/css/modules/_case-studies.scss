@@ -1,20 +1,9 @@
 .home-case-studies {
   padding-block: 0 1rem;
 
-  .wrapper {
+  &__hero {
     position: relative;
-    display: grid;
-    align-items: stretch;
-    min-height: clamp(24rem, 58vw, 42rem);
-    padding: clamp(1.5rem, 4vw, 3rem);
-    overflow: hidden;
-    border-radius: 1.5rem;
-    isolation: isolate;
-  }
-
-  .hero__top {
-    display: flex;
-    justify-content: flex-end;
+    padding-bottom: 0;
   }
 
   .hero__intro,
@@ -33,17 +22,20 @@
   }
 
   .hero__intro {
-    max-width: 24ch;
-    text-align: center;
+    max-width: 28ch;
+    text-align: right;
+    margin-left: auto;
     margin-right: clamp(0rem, 5vw, 4rem);
+    top: clamp(1rem, 10vw, 8rem);
   }
 
   .hero__headline {
     align-self: center;
     font-weight: 700;
+    font-family: var(--font-heading);
     color: var(--color-text);
     letter-spacing: -0.08em;
-    line-height: 0.82;
+    line-height: 1;
     font-size: clamp(3.5rem, 5vw, 4.5rem);
 
     span {
@@ -53,35 +45,37 @@
     }
 
     .indent-0 {
-      margin-left: clamp(5rem, 24vw, 9rem);
-      font-size: 0.92em;
+      margin-left: clamp(1rem, 4vw, 9rem);
+      font-size: 1.5em;
     }
 
     .indent-1 {
-      margin-left: clamp(5rem, 24vw, 18rem);
-      font-size: 0.92em;
+      margin-left: clamp(4rem, 20vw, 18rem);
+      font-size: 1.5em;
     }
 
     .indent-2 {
-      margin-left: clamp(7rem, 39vw, 30rem);
-      font-size: 0.92em;
+      margin-left: clamp(4rem, 34vw, 25rem);
+      font-size: 1.5em;
     }
 
     .indent-3 {
-      margin-left: clamp(8rem, 46vw, 36rem);
-      font-size: 0.96em;
+      margin-left: clamp(6rem, 38vw, 30rem);
+      font-size: 1.5em;
     }
   }
 
   .hero__footer {
     max-width: 20ch;
     margin-bottom: clamp(1rem, 8vw, 4rem);
+    bottom: clamp(1rem, 10vw, 8rem);
+    margin-left: clamp(0rem, 2vw, 4rem);
   }
 
 
   &__logo {
     position: absolute;
-    inset: 50% auto auto 50%;
+    inset: 50% auto auto 40%;
     z-index: 1;
     width: min(44vw, 22rem);
     object-fit: contain;
@@ -107,6 +101,7 @@
 
   @media (max-width: 960px) {
     .wrapper {
+      display: grid;
       min-height: 22rem;
       gap: 1rem;
       align-content: center;
@@ -117,6 +112,11 @@
     .hero__top {
       justify-content: center;
       width: 100%;
+    }
+
+    .hero__intro {
+      margin-left: 0;
+      top: 2rem;
     }
 
     .hero__intro,
@@ -152,6 +152,7 @@
 
     .hero__footer {
       margin-bottom: 0;
+      bottom: 2rem;
       align-self: center;
       justify-self: center;
     }
@@ -159,6 +160,7 @@
     &__logo {
       width: min(56vw, 16rem);
       transform: translate(-50%, -48%);
+      inset: 50% auto auto 50%;
     }
   }
 }

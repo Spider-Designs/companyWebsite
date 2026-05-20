@@ -1,11 +1,11 @@
+.home-eyebrow.home-section {
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  z-index: 2;
+}
 // _page-home.scss
 // Layout rules specific to the home page.
-
-.home-hero,
-.home-services {
-  padding-block: 2rem;
-}
-
 .centre {
   text-align: center;
 }
@@ -27,4 +27,96 @@
 .service-item {
   padding: 1.5rem;
   border-radius: 0.5rem;
+}
+
+.home-eyebrow__row {
+  display: flex;
+  align-items: center;
+  margin-top: 0.75rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+.home-eyebrow__dot {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: #1ec773;
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+.home-eyebrow__sep {
+  font-size: 1.1em;
+  margin: 0 0.2em;
+  user-select: none;
+}
+
+.home-eyebrow__text {
+  font-size: 0.7em;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.home-eyebrow.home-section::before,
+.home-eyebrow.home-section::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100% - 3rem, 1200px);
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  z-index: 1;
+}
+
+.industry-list {
+  display: grid;
+  gap: 1rem;
+  padding-block: 1.5rem;
+}
+
+.industry-list__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.industry-list__item {
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.industry-list__dot {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  flex: 0 0 auto;
+}
+
+@media (max-width: 700px) {
+  .industry-list {
+    gap: 0.75rem;
+    padding-block: 1.25rem;
+  }
+
+  .industry-list__row {
+    gap: 0.65rem;
+  }
+
+  .industry-list__item {
+    font-size: 0.95rem;
+  }
+
+  .industry-list__dot {
+    width: 0.28rem;
+    height: 0.28rem;
+  }
 }
