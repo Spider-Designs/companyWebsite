@@ -16,7 +16,6 @@ title: Content Manager
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
-      {# TODO: Align closer with site css #}
       const createPreviewElement = window.h;
       const createPreviewClass = window.createClass;
 
@@ -70,7 +69,14 @@ title: Content Manager
             const previewImage = resolveAsset(props.getAsset, data.get('previewImage'));
             const previewImageAlt = data.get('previewImageAlt') || previewTitle;
             const publishedDate = formatDate(data.get('date'));
+            const tags = data.get('tags');
             const body = props.widgetFor('body');
+
+            const visibleTags = tags && typeof tags.filter === 'function'
+              ? tags.filter(function (tag) {
+                  return tag && tag !== 'posts';
+                }).toArray()
+              : [];
 
             return createPreviewElement(
               'article',
@@ -116,22 +122,65 @@ title: Content Manager
                 )
               ),
               createPreviewElement(
-                'section',
-                { className: 'post-hero decap-preview__hero-shell' },
+                'article',
+                { className: 'post' },
                 createPreviewElement(
-                  'div',
-                  { className: 'wrapper' },
-                  createPreviewElement('h1', null, title),
-                  publishedDate ? createPreviewElement('p', { className: 'post-hero__meta' }, 'Published: ' + publishedDate) : null
-                )
-              ),
-              createPreviewElement(
-                'section',
-                { className: 'post-content decap-preview__body-shell' },
+                  'header',
+                  { className: 'post-hero' },
+                  createPreviewElement(
+                    'div',
+                    { className: 'wrapper post-hero__inner' },
+                    publishedDate
+                      ? createPreviewElement(
+                          'p',
+                          { className: 'post-hero__meta' },
+                          createPreviewElement('span', null, 'Published'),
+                          createPreviewElement('time', { dateTime: data.get('date') || '' }, publishedDate)
+                        )
+                      : null,
+                    createPreviewElement('h1', null, title),
+                    previewSummary ? createPreviewElement('p', { className: 'post-hero__summary' }, previewSummary) : null
+                  )
+                ),
+                previewImage
+                  ? createPreviewElement(
+                      'section',
+                      { className: 'post-featured' },
+                      createPreviewElement(
+                        'div',
+                        { className: 'wrapper post-featured__inner' },
+                        createPreviewElement('img', {
+                          src: previewImage,
+                          alt: previewImageAlt,
+                        })
+                      )
+                    )
+                  : null,
                 createPreviewElement(
-                  'div',
-                  { className: 'wrapper post-content__inner' },
-                  body
+                  'section',
+                  { className: 'post-content' },
+                  createPreviewElement(
+                    'div',
+                    { className: 'wrapper post-content__inner prose' },
+                    body
+                  )
+                ),
+                createPreviewElement(
+                  'footer',
+                  { className: 'post-footer' },
+                  createPreviewElement(
+                    'div',
+                    { className: 'wrapper post-footer__inner' },
+                    visibleTags.length
+                      ? createPreviewElement(
+                          'ul',
+                          { className: 'post-footer__tags' },
+                          visibleTags.map(function (tag, index) {
+                            return createPreviewElement('li', { key: 'tag-' + index }, tag);
+                          })
+                        )
+                      : null
+                  )
                 )
               )
             );
@@ -146,18 +195,18 @@ title: Content Manager
             const entry = props.entry;
             const data = entry.get('data');
             const title = data.get('title') || 'Untitled';
+            const subHeading = data.get('subHeading') || '';
             const client = data.get('client') || title;
             const location = data.get('location') || 'Location';
             const impact = data.get('impact') || '';
             const previewImage = resolveAsset(props.getAsset, data.get('previewImage'));
             const previewImageAlt = data.get('previewImageAlt') || client;
             const heroImage = resolveAsset(props.getAsset, data.get('heroImage'));
-            const heroImageAlt = data.get('heroImageAlt') || client;
+            const heroImageAlt = data.get('heroImageAlt') || title;
             const midHeroImage = resolveAsset(props.getAsset, data.get('midHeroImage'));
             const midHeroImageAlt = data.get('midHeroImageAlt') || '';
             const quote = data.get('quote') || '';
             const quoteAuthor = data.get('quoteAuthor') || '';
-            const publishedDate = formatDate(data.get('date'));
             const galleryImages = data.get('galleryImages');
             const quoteImages = data.get('quoteImages');
             const brief = props.widgetFor('brief');
@@ -200,18 +249,18 @@ title: Content Manager
               );
             }
 
-            function renderSection(label, body) {
+            function renderSection(sectionClassName, label, body) {
               if (!body) {
                 return null;
               }
 
               return createPreviewElement(
                 'section',
-                { className: 'cs-section' },
+                { className: 'cs-section ' + sectionClassName },
                 createPreviewElement(
                   'div',
                   { className: 'wrapper cs-section__inner' },
-                  createPreviewElement('h2', { className: 'cs-section__label' }, label),
+                  createPreviewElement('h2', { className: 'cs-section__label heading' }, label),
                   createPreviewElement('div', { className: 'cs-section__body prose' }, body)
                 )
               );
@@ -252,27 +301,26 @@ title: Content Manager
               createPreviewElement(
                 'section',
                 { className: 'cs-hero' },
-                heroImage
-                  ? createPreviewElement(
-                      'div',
-                      { className: 'cs-hero__media' },
-                      createPreviewElement('img', {
-                        src: heroImage,
-                        alt: heroImageAlt,
-                      })
-                    )
-                  : null,
                 createPreviewElement(
                   'div',
-                  { className: 'wrapper cs-hero__content' },
-                  createPreviewElement('p', { className: 'cs-hero__eyebrow' }, location + (publishedDate ? ' - ' + publishedDate : '')),
-                  createPreviewElement('h1', null, client),
-                  impact ? createPreviewElement('p', { className: 'cs-hero__impact' }, impact) : null
+                  { className: 'cs-hero__content' },
+                  createPreviewElement('h1', { className: 'heading cs-hero__title' }, title),
+                  createPreviewElement('p', { className: 'cs-hero__eyebrow' }, subHeading)
                 )
               ),
-              renderSection('Brief', brief),
+              heroImage
+                ? createPreviewElement(
+                    'div',
+                    { className: 'cs-hero__media' },
+                    createPreviewElement('img', {
+                      src: heroImage,
+                      alt: heroImageAlt,
+                    })
+                  )
+                : null,
+              renderSection('cs-brief', 'Brief', brief),
               renderImageList(galleryImages, 'cs-gallery cs-gallery--pair'),
-              renderSection('Approach', approach),
+              renderSection('cs-approach', 'Approach', approach),
               midHeroImage
                 ? createPreviewElement(
                     'section',
@@ -283,6 +331,8 @@ title: Content Manager
                     })
                   )
                 : null,
+              renderImageList(quoteImages, 'cs-gallery cs-gallery--group'),
+              renderSection('cs-results', 'Results', results),
               quote
                 ? createPreviewElement(
                     'section',
@@ -299,8 +349,43 @@ title: Content Manager
                     )
                   )
                 : null,
-              renderImageList(quoteImages, 'cs-gallery cs-gallery--group'),
-              renderSection('Results', results)
+              createPreviewElement(
+                'section',
+                { className: 'cs-more' },
+                createPreviewElement(
+                  'div',
+                  { className: 'wrapper' },
+                  createPreviewElement('h2', { className: 'cs-more__heading' }, 'More Case Studies'),
+                  createPreviewElement(
+                    'div',
+                    { className: 'case-study-preview-grid' },
+                    createPreviewElement(
+                      'article',
+                      { className: 'case-study-preview-card' },
+                      createPreviewElement(
+                        'div',
+                        { className: 'case-study-preview-card__link' },
+                        previewImage
+                          ? createPreviewElement(
+                              'div',
+                              { className: 'case-study-preview-card__media' },
+                              createPreviewElement('img', {
+                                src: previewImage,
+                                alt: previewImageAlt,
+                              })
+                            )
+                          : null,
+                        createPreviewElement(
+                          'div',
+                          { className: 'case-study-preview-card__body' },
+                          createPreviewElement('p', { className: 'case-study-preview-card__meta' }, client),
+                          createPreviewElement('p', { className: 'case-study-preview-card__meta-secondary' }, location + (impact ? ' — ' + impact : ''))
+                        )
+                      )
+                    )
+                  )
+                )
+              )
             );
           }
         });
