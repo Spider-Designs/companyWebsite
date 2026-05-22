@@ -34,6 +34,7 @@ collections:
     fields: # The fields for each document, usually in front matter
       - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/case-study.html"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Sub Heading", name: "subHeading", widget: "string", required: false, hint: "Subheading shown on the right side of the hero section"}
       - {label: "Client", name: "client", widget: "string"}
       - {label: "Location", name: "location", widget: "string"}
       - {label: "Job Date", name: "date", widget: "datetime", time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD"}

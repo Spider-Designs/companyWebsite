@@ -1,6 +1,7 @@
 ---
 layout: layouts/case-study.html
-title: Washing Guy
+title: Simple Website Design for Washing Guys
+subHeading: Creating a Modern and user-friendly website for a cleaning company
 client: The Washing Guys
 location: Aberdeen
 date: 2026-05-12

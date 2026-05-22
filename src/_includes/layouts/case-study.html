@@ -4,23 +4,23 @@
 
 {# 1. Hero Picture #}
 <section class="cs-hero">
-  {% if heroImage %}
-    <div class="cs-hero__media">
-      <img src="{{ heroImage }}" alt="{{ heroImageAlt | default(client | default(title)) }}" loading="eager" decoding="async" />
-    </div>
-  {% endif %}
-  <div class="wrapper cs-hero__content">
-    <p class="cs-hero__eyebrow">{{ location }}{% if date %} &mdash; {{ date | readableDate }}{% endif %}</p>
-    <h1>{{ client }}</h1>
-    {% if impact %}<p class="cs-hero__impact">{{ impact }}</p>{% endif %}
+  <div class="cs-hero__content">
+    <h1 class="heading cs-hero__title">{{ title }}</h1>
+    <p class="cs-hero__eyebrow">{{ subHeading }}</p>
   </div>
 </section>
+
+{% if heroImage %}
+  <div class="cs-hero__media">
+    <img src="{{ heroImage }}" alt="{{ heroImageAlt | default(title) }}" loading="eager" decoding="async" />
+  </div>
+{% endif %}
 
 {# 2. Brief Section #}
 {% if brief %}
   <section class="cs-section cs-brief">
     <div class="wrapper cs-section__inner">
-      <h2 class="cs-section__label">Brief</h2>
+      <h2 class="cs-section__label heading">Brief</h2>
       <div class="cs-section__body prose">{{ brief | markdownify | safe }}</div>
     </div>
   </section>
@@ -45,7 +45,7 @@
 {% if approach %}
   <section class="cs-section cs-approach">
     <div class="wrapper cs-section__inner">
-      <h2 class="cs-section__label">Approach</h2>
+      <h2 class="cs-section__label heading">Approach</h2>
       <div class="cs-section__body prose">{{ approach | markdownify | safe }}</div>
     </div>
   </section>
@@ -58,19 +58,7 @@
   </section>
 {% endif %}
 
-{# 6. Client Quote #}
-{% if quote %}
-  <section class="cs-quote">
-    <div class="wrapper">
-      <blockquote class="cs-quote__block">
-        <p class="cs-quote__text">&ldquo;{{ quote }}&rdquo;</p>
-        {% if quoteAuthor %}<cite class="cs-quote__cite">&mdash; {{ quoteAuthor }}</cite>{% endif %}
-      </blockquote>
-    </div>
-  </section>
-{% endif %}
-
-{# 7. Group of images #}
+{# 6. Group of images #}
 {% if quoteImages and quoteImages.length %}
   <section class="cs-gallery cs-gallery--group">
     <div class="wrapper">
@@ -85,12 +73,24 @@
   </section>
 {% endif %}
 
-{# 8. Results #}
+{# 7. Results #}
 {% if results %}
   <section class="cs-section cs-results">
     <div class="wrapper cs-section__inner">
-      <h2 class="cs-section__label">Results</h2>
+      <h2 class="cs-section__label heading">Results</h2>
       <div class="cs-section__body prose">{{ results | markdownify | safe }}</div>
+    </div>
+  </section>
+{% endif %}
+
+{# 8. Client Quote #}
+{% if quote %}
+  <section class="cs-quote">
+    <div class="wrapper">
+      <blockquote class="cs-quote__block">
+        <p class="cs-quote__text">&ldquo;{{ quote }}&rdquo;</p>
+        {% if quoteAuthor %}<cite class="cs-quote__cite">&mdash; {{ quoteAuthor }}</cite>{% endif %}
+      </blockquote>
     </div>
   </section>
 {% endif %}

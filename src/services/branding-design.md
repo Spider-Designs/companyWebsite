@@ -28,7 +28,6 @@ outcomes:
     - A defined typography system for headings, body, and supporting copy
     - A concise brand guidelines document for consistent usage
 ---
-<!-- TODO: Go over and actually write out the services -->
 
 ## Built to grow with you
 
