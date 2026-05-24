@@ -39,7 +39,7 @@ We offer monthly maintenance packages to suit different levels of need:
 
 - **Basic** — Hosting, updates, backups, and security monitoring.
 - **Standard** — Everything in Basic, plus performance checks and small content updates.
-- **Retainer** — Everything in Standard, plus priority support and a monthly allowance for larger updates or additions.
+- **Priority** — Everything in Standard, plus priority support and a monthly allowance for larger updates or additions.
 
 ## Part of our retainer offering
 

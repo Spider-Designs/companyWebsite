@@ -1,6 +1,7 @@
 // _layout.scss
 .wrapper { 
-  max-width: 1200px; 
+  max-width: 1200px;
+// TODO: make max-width adjustable via clamp
   margin-inline: auto; 
   padding: var(--wrapper-padding);
 }

@@ -10,9 +10,9 @@ aboutHero:
     - heading: 10+
       subheading: years of combined experience.
     - heading: 2
-      subheading: Team Size
-    - heading: 20+
-      subheading: businesses given a platform
+      subheading: Members, a dedicated designer and developer on every project.
+    - heading: Flexible
+      subheading: monthly retainers or one-off projects, whatever suits you
     - heading: UK
       subheading: client coverage
   team:

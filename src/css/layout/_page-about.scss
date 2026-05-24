@@ -21,8 +21,8 @@
   }
 
   &__subtitle {
-    width: 44ch;
-    margin: 2rem 0 0 2rem;
+    max-width: 44ch;
+    margin: 2rem 0 0 0;
     font-size: 0.8rem;
     opacity: 0.8;
   }
@@ -62,7 +62,7 @@
     margin-top: 0;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 1000px) {
     &.impact .wrapper {
       grid-template-areas: none;
     }

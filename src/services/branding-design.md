@@ -23,7 +23,7 @@ outcomes:
   brief: 'A well-designed brand makes your business look professional and trustworthy from the very first impression. We create clear, consistent brand identities that work across every touchpoint.'
   listHeading: 'Every branding project includes:'
   list:
-    - A professional logo in all formats (SVG, PNG, PDF) and variations (full colour, reversed, monochrome)
+    - A professional logo in all formats and variations (full colour, reversed, monochrome)
     - A considered colour palette with hex, RGB, and CMYK values
     - A defined typography system for headings, body, and supporting copy
     - A concise brand guidelines document for consistent usage
