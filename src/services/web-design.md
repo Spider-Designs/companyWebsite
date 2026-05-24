@@ -1,5 +1,6 @@
 ---
 title: 'Web Design & Development | Spider Design'
+pageTitle: Web Design & Development
 metaDesc: 'Spider Design builds fast, professional, mobile-friendly websites tailored to your business.'
 layout: 'layouts/service.html'
 permalink: '/services/web-design/index.html'

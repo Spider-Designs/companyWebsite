@@ -1,5 +1,6 @@
 ---
 title: 'Branding Design | Spider Design'
+pageTitle: Branding Design
 metaDesc: 'Spider Design creates logos, brand identities, and visual guidelines that give your business a professional, consistent look across every touchpoint.'
 layout: 'layouts/service.html'
 permalink: '/services/branding-design/index.html'
