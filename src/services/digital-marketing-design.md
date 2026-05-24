@@ -1,5 +1,5 @@
 ---
-title: 'Digital Marketing Design'
+title: 'Digital Marketing Design | Spider Design'
 metaDesc: 'Spider Design creates professional graphics, social media assets, and campaign visuals to get your brand noticed online. Affordable digital marketing design.'
 layout: 'layouts/service.html'
 permalink: '/services/digital-marketing-design/index.html'

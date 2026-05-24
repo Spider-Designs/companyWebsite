@@ -1,5 +1,5 @@
 ---
-title: 'Hosting & Maintenance'
+title: 'Hosting & Maintenance | Spider Design'
 metaDesc: 'Spider Design provides reliable website hosting and ongoing maintenance. Keeping your site fast, secure, and up to date without the hassle.'
 layout: 'layouts/service.html'
 permalink: '/services/hosting-maintenance/index.html'

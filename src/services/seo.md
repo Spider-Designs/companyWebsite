@@ -1,5 +1,5 @@
 ---
-title: 'SEO Optimisation'
+title: 'SEO Optimisation | Spider Design'
 metaDesc: 'Spider Design improves your search engine rankings so more customers find your business online. Affordable SEO services with measurable results.'
 layout: 'layouts/service.html'
 permalink: '/services/seo/index.html'

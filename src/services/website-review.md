@@ -1,5 +1,5 @@
 ---
-title: 'Website Review'
+title: 'Website Review | Spider Design'
 metaDesc: 'Spider Design audits your existing website for performance, SEO, accessibility, and conversion opportunities with a clear, actionable report.'
 layout: 'layouts/service.html'
 permalink: '/services/website-review/index.html'
