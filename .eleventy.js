@@ -137,6 +137,7 @@ export default function(eleventyConfig) {
     transformOnRequest: process.env.ELEVENTY_RUN_MODE === "serve",
   });
 
+  eleventyConfig.addPassthroughCopy({ 'src/images/logo.svg': 'images/logo.svg' });
   eleventyConfig.addPassthroughCopy('src/admin');
   eleventyConfig.addPassthroughCopy('src/fonts');
 
